@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="177.0" layoutY="135.0" prefHeight="17.0" prefWidth="265.0" text="Здравствуйте, выберите вариант входа!" />
+      <ImageView fitHeight="123.0" fitWidth="239.0" layoutX="177.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/12_100229_1_79522.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="144.0" layoutY="208.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="137.0" text="Работник" />
+      <Button layoutX="315.0" layoutY="208.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="137.0" text="Студент" />
+   </children>
+</AnchorPane>

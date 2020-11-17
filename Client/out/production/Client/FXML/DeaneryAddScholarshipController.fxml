@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Label layoutX="112.0" layoutY="18.0" text="Назначение стипендии">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <TableView layoutX="29.0" layoutY="90.0" prefHeight="121.0" prefWidth="558.0">
+        <columns>
+          <TableColumn prefWidth="118.0" text="Фамилия" />
+          <TableColumn prefWidth="85.0" text="Имя" />
+            <TableColumn prefWidth="114.0" text="Группа" />
+            <TableColumn prefWidth="102.0" text="Зачетка" />
+            <TableColumn text="Факультет" />
+            <TableColumn prefWidth="58.0" text="Рейтинг" />
+        </columns>
+      </TableView>
+      <Label layoutX="32.0" layoutY="247.0" text="Выберите вид стипендии:" />
+      <Label layoutX="29.0" layoutY="295.0" text="Выберите номер зачетки назначения:" />
+      <ComboBox layoutX="243.0" layoutY="242.0" prefWidth="150.0" />
+      <ComboBox layoutX="269.0" layoutY="290.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

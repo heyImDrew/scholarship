@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Label layoutX="53.0" layoutY="18.0" text="Просмотр информации о студентах">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <TableView layoutX="14.0" layoutY="87.0" prefHeight="246.0" prefWidth="585.0">
+        <columns>
+          <TableColumn prefWidth="91.0" text="Фамилия" />
+          <TableColumn prefWidth="81.0" text="Имя" />
+            <TableColumn prefWidth="96.0" text="Отчество" />
+            <TableColumn prefWidth="95.0" text="Группа" />
+            <TableColumn prefWidth="83.0" text="Зачетка" />
+            <TableColumn prefWidth="77.0" text="Факультет" />
+            <TableColumn prefWidth="61.0" text="Рейтинг" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
