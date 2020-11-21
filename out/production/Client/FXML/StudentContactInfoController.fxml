@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Label layoutX="141.0" layoutY="16.0" text="Контактная информация">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/a40200c96688cebcc5a5a057fda1c0a5.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/IMG-d7b8da74-V.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="104.0" text="Выбор деканата:" />
+      <ComboBox layoutX="124.0" layoutY="99.0" prefWidth="150.0" />
+      <Label layoutX="259.0" layoutY="253.0" text="Телефон:" />
+      <Text layoutX="314.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Label layoutX="261.0" layoutY="287.0" text="Декан:" />
+      <Text layoutX="300.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Label layoutX="261.0" layoutY="320.0" text="Кабинет:" />
+      <Text layoutX="314.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+   </children>
+</AnchorPane>
