@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `scholarship`.`Accountant` (
   `lastName` VARCHAR(45) NOT NULL,
   `patronymic` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
-  `Accountantcol` VARCHAR(45) NOT NULL,
+  -- `Accountantcol` VARCHAR(45) NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAccountant`))
@@ -170,3 +170,50 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `Accountant`(`idAccountant`,`name`,`lastName`,`patronymic`,`phone`,`login`,`password`) VALUES (1,'Галина','Иванова','Ивановна','2840712','galina','ivanova');
+
+
+INSERT INTO `Deanery` (`idDeanery`,`name`,`lastName`,`patronymic`,`phone`,`room`,`password`) VALUES (1,'Сергей','Ломан','Игоревич','2471213','810','loman'), (2,'Сергей','Ломан','Игоревич','2471213','810','loman');
+
+INSERT INTO `Session` (`idSession`,`avgMark`) VALUES (1,'9'), (2,'8'), (3,'9'), (4,'5'), (5,'6') ,(6,'6');
+
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (1,'ООП','14.12.2020','8',1);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (2,'БД','16.12.2020','10',1);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (3,'САиПИС','18.12.2020','9',1);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (4,'Математика','20.12.2020','9',1);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (5,'ООП','14.12.2020','10',2);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (6,'БД','16.12.2020','6',2);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (7,'САиПИС','18.12.2020','7',2);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (8,'Математика','20.12.2020','9',2);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (9,'ООП','14.12.2020','9',3);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (10,'БД','16.12.2020','9',3);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (11,'САиПИС','18.12.2020','10',3);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (12,'Математика','20.12.2020','8',3);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (13,'ООП','14.12.2020','4',4);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (14,'БД','16.12.2020','6',4);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (15,'САиПИС','18.12.2020','4',4);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (16,'Математика','20.12.2020','6',4);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (17,'ООП','14.12.2020','8',5);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (18,'БД','16.12.2020','4',5);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (19,'САиПИС','18.12.2020','6',5);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (20,'Математика','20.12.2020','6',5);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (21,'ООП','14.12.2020','6',6);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (22,'БД','16.12.2020','6',6);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (23,'САиПИС','18.12.2020','6',6);
+INSERT INTO `Exam` (`idExam`,`subject`,`date`,`mark`,`Session`) VALUES (24,'Математика','20.12.2020','6',6);
+
+INSERT INTO `Faculty` (`idFaculty`,`name`,`studentsNumber`,`deanery`,`accountant`) VALUES (1,'ИЭФ','3',1,1);
+INSERT INTO `Faculty` (`idFaculty`,`name`,`studentsNumber`,`deanery`,`accountant`) VALUES (2,'ФКП','3',2,1);
+
+
+INSERT INTO `Scholarship` (`idScholarship`,`type`,`date`,`amount`) VALUES (1,'Повышенная','21.12.2020','115'), (2,'Обычная','21.12.2020','115'), (3,'Повышенная','21.12.2020','115'), (4,'Обычная','21.12.2020','115'), (5,'Повышенная','21.12.2020','115') ,(6,'Повышенная','21.12.2020','115');
+
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (1,'Игорь','Мороз','Александрович','872301','87230105','53510412','igor','moroz',1,1,1);
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (2,'Андрей','Кулаков','Александрович','872301','87230133','53510566','andrey','kulakov',2,1,2);
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (3,'Юлия','Сильванович','Викторовна','872301','87230111','56754754','yulya','silvan',3,1,3);
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (4,'Максим','Камень','Александрович','895302','89530243','46867457','maks','kamen',4,2,4);
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (5,'Сергей','Савин','Сергеевич','895302','89530212','12345981','sergey','savin',5,2,5);
+INSERT INTO `Student` (`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard` ,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (6,'Вера','Мавич','Алексеевна','895302','89530287','52146874','vera','mavich',6,2,6);
+
+
