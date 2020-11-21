@@ -16,14 +16,15 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
       <Label layoutX="17.0" layoutY="84.0" text="Количество студентов в системе:" />
       <Label layoutX="16.0" layoutY="158.0" text="Номер зачетки:" />
       <Label layoutX="17.0" layoutY="225.0" text="Стипендия:" />
       <Label layoutX="14.0" layoutY="284.0" text="Размер:" />
-      <ComboBox layoutX="108.0" layoutY="153.0" prefWidth="150.0" />
-      <Text layoutX="105.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="58.22900390625" />
-      <Text layoutX="105.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="58.22900390625" />
+      <Text fx:id="scholarText" layoutX="105.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="58.22900390625" />
+      <Text fx:id="amoungText" layoutX="105.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="58.22900390625" />
+      <ChoiceBox fx:id="recordBookBox" layoutX="121.0" layoutY="153.0" prefWidth="150.0" />
+      <Text fx:id="text" layoutX="212.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

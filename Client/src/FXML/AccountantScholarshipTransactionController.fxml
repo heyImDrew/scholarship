@@ -16,20 +16,20 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <TableView layoutX="10.0" layoutY="119.0" prefHeight="131.0" prefWidth="589.0">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <TableView fx:id="tableView" layoutX="10.0" layoutY="119.0" prefHeight="131.0" prefWidth="589.0">
          <columns>
-            <TableColumn prefWidth="101.0" text="Фамилия" />
-            <TableColumn prefWidth="83.0" text="Имя " />
-            <TableColumn prefWidth="111.0" text="Отчество" />
-            <TableColumn prefWidth="114.0" text="Группа" />
-            <TableColumn prefWidth="179.0" text="Карта" />
+            <TableColumn fx:id="surnameColumn" prefWidth="101.0" text="Фамилия" />
+            <TableColumn fx:id="nameColumn" prefWidth="83.0" text="Имя " />
+            <TableColumn fx:id="potronymColomn" prefWidth="111.0" text="Отчество" />
+            <TableColumn fx:id="groupColomn" prefWidth="114.0" text="Группа" />
+            <TableColumn fx:id="cardColomn" prefWidth="179.0" text="Карта" />
          </columns>
       </TableView>
       <Label layoutX="17.0" layoutY="275.0" text="Выберите номер карты студента:" />
       <Label layoutX="17.0" layoutY="308.0" text="Изменить дату перевода:" />
-      <ComboBox layoutX="225.0" layoutY="270.0" prefWidth="150.0" />
-      <TextField layoutX="178.0" layoutY="303.0" />
-      <Button layoutX="300.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Изменить" />
+      <TextField fx:id="changeDateButton" layoutX="178.0" layoutY="303.0" />
+      <Button fx:id="changeButton" layoutX="300.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Изменить" />
+      <ChoiceBox fx:id="cardButton" layoutX="225.0" layoutY="270.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

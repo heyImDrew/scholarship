@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: orange;">
@@ -29,12 +28,12 @@
          </image>
       </ImageView>
       <Label layoutX="26.0" layoutY="104.0" text="Выбор деканата:" />
-      <ComboBox layoutX="124.0" layoutY="99.0" prefWidth="150.0" />
       <Label layoutX="259.0" layoutY="253.0" text="Телефон:" />
-      <Text layoutX="314.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Text fx:id="phone" layoutX="314.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
       <Label layoutX="261.0" layoutY="287.0" text="Декан:" />
-      <Text layoutX="300.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Text fx:id="deanery" layoutX="300.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
       <Label layoutX="261.0" layoutY="320.0" text="Кабинет:" />
-      <Text layoutX="314.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Text fx:id="room" layoutX="314.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <ChoiceBox fx:id="deaneryBox" layoutX="139.0" layoutY="99.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
