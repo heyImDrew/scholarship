@@ -16,7 +16,7 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button layoutX="199.0" layoutY="159.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="203.0" text="Создать отчет" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="reportButton" layoutX="199.0" layoutY="159.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="203.0" text="Создать отчет" />
    </children>
 </AnchorPane>

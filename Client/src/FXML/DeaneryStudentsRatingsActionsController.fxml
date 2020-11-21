@@ -16,9 +16,9 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
       <Label layoutX="34.0" layoutY="213.0" text="Выбор просмотра рейтинга:" />
-      <ComboBox layoutX="216.0" layoutY="207.0" prefHeight="30.0" prefWidth="285.0" />
+      <ChoiceBox fx:id="choiceBox" layoutX="214.0" layoutY="208.0" prefHeight="27.0" prefWidth="266.0" />
    </children>
 </AnchorPane>

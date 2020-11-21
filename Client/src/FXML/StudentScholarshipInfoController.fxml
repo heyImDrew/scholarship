@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb521" height="74.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
@@ -25,6 +24,8 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="Назад" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="Назад" />
+      <Text fx:id="typeText" layoutX="270.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="50.21630859375" />
+      <Text fx:id="amountText" layoutX="314.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="50.21630859375" />
    </children>
 </AnchorPane>

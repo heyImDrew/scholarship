@@ -16,21 +16,21 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
-      <TableView layoutX="29.0" layoutY="90.0" prefHeight="121.0" prefWidth="558.0">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <TableView fx:id="tableView" layoutX="29.0" layoutY="90.0" prefHeight="121.0" prefWidth="558.0">
         <columns>
-          <TableColumn prefWidth="118.0" text="Фамилия" />
-          <TableColumn prefWidth="85.0" text="Имя" />
-            <TableColumn prefWidth="114.0" text="Группа" />
-            <TableColumn prefWidth="102.0" text="Зачетка" />
-            <TableColumn text="Факультет" />
-            <TableColumn prefWidth="58.0" text="Рейтинг" />
+          <TableColumn fx:id="surname" prefWidth="118.0" text="Фамилия" />
+          <TableColumn fx:id="name" prefWidth="85.0" text="Имя" />
+            <TableColumn fx:id="group" prefWidth="114.0" text="Группа" />
+            <TableColumn fx:id="recordBook" prefWidth="102.0" text="Зачетка" />
+            <TableColumn fx:id="faculty" text="Факультет" />
+            <TableColumn fx:id="rating" prefWidth="58.0" text="Рейтинг" />
         </columns>
       </TableView>
       <Label layoutX="32.0" layoutY="247.0" text="Выберите вид стипендии:" />
       <Label layoutX="29.0" layoutY="295.0" text="Выберите номер зачетки назначения:" />
-      <ComboBox layoutX="243.0" layoutY="242.0" prefWidth="150.0" />
-      <ComboBox layoutX="269.0" layoutY="290.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="scholarBox" layoutX="247.0" layoutY="242.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="numberBox" layoutX="262.0" layoutY="290.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
