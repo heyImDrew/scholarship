@@ -1,4 +1,4 @@
-package Connection;
+package ClassPackages.MainPackage.Models;
 
 import java.io.*;
 import java.net.ServerSocket;
