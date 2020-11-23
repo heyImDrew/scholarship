@@ -52,7 +52,6 @@ public class Handler implements Closeable {
     private BufferedWriter create_writer() throws IOException {
         return new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
     }
-
     @Override
     public void close() throws IOException {
         reader.close();

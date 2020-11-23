@@ -2,6 +2,7 @@ package Connection;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.sql.SQLException;
 
 public class Server {
     public static void main(String[] args) {
@@ -10,12 +11,7 @@ public class Server {
             while (true) {
                 Handler handler = new Handler(server);
                 new Thread(() -> {
-                    String request = handler.read_line();
-                    System.out.println("REQ: " + request);
-                    String response = "response";
-                    try {Thread.sleep(2000);} catch (InterruptedException e) {};
-                    System.out.println("RESP: " + response);
-                    handler.write_line(response);
+                    System.out.println("actions here");
                     try { handler.close(); } catch (IOException e) {};
                 }).start();
             }
