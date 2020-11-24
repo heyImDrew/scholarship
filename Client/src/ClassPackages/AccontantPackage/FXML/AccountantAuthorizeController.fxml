@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -7,17 +8,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="210.0" layoutY="137.0" prefHeight="17.0" prefWidth="210.0" text="Добро Пожаловать в бухгалтерию!" />
+      <Label layoutX="103.0" layoutY="135.0" prefHeight="26.0" prefWidth="374.0" text="Добро Пожаловать в бухгалтерию!">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
       <TextField fx:id="loginField" layoutX="220.0" layoutY="187.0" />
       <TextField fx:id="passwordField" layoutX="220.0" layoutY="230.0" />
       <Label layoutX="132.0" layoutY="192.0" prefHeight="17.0" prefWidth="69.0" text="Логин:" />
       <Label layoutX="132.0" layoutY="235.0" prefHeight="17.0" prefWidth="69.0" text="Пароль:" />
-      <Button fx:id="enterButton" layoutX="153.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Вход" />
+      <Button fx:id="enterButton" layoutX="209.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Вход" />
       <Button fx:id="registerButton" layoutX="333.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Регистрация" />
-      <ImageView fitHeight="146.0" fitWidth="251.0" layoutX="175.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/12_100229_1_79522.jpg" />
-         </image>
-      </ImageView>
+      <Button fx:id="enterButton1" layoutX="91.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Назад" />
    </children>
 </AnchorPane>

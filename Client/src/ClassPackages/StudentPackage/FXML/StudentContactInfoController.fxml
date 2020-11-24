@@ -17,23 +17,31 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/a40200c96688cebcc5a5a057fda1c0a5.jpeg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/IMG-d7b8da74-V.jpg" />
-         </image>
-      </ImageView>
       <Label layoutX="26.0" layoutY="104.0" text="Выбор деканата:" />
-      <Label layoutX="259.0" layoutY="253.0" text="Телефон:" />
-      <Text fx:id="phone" layoutX="314.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
-      <Label layoutX="261.0" layoutY="287.0" text="Декан:" />
-      <Text fx:id="deanery" layoutX="300.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
-      <Label layoutX="261.0" layoutY="320.0" text="Кабинет:" />
-      <Text fx:id="room" layoutX="314.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625" />
+      <Label layoutX="26.0" layoutY="158.0" text="Телефон:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="phone" layoutX="145.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Label layoutX="28.0" layoutY="192.0" text="Декан:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="deanery" layoutX="139.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Label layoutX="28.0" layoutY="225.0" text="Кабинет:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="room" layoutX="139.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
       <ChoiceBox fx:id="deaneryBox" layoutX="139.0" layoutY="99.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

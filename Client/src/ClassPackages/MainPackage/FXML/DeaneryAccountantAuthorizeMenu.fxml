@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClassPackages.MainPackage.Controllers.DeanAccountantController">
+   <children>
+      <Label layoutX="115.0" layoutY="138.0" prefHeight="37.0" prefWidth="485.0" text="Выберите вашу должность">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <Button fx:id="deaneryButton" layoutX="115.0" layoutY="200.0" mnemonicParsing="false" onAction="#deanAction" prefHeight="95.0" prefWidth="160.0" text="Деканат" />
+      <Button fx:id="accountantButton" layoutX="323.0" layoutY="200.0" mnemonicParsing="false" onAction="#accountantAction" prefHeight="95.0" prefWidth="160.0" text="Бухгалтер" />
+   </children>
+</AnchorPane>
