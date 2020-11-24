@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backbutton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button fx:id="deleteButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Удалить" />
+      <Button fx:id="deleteButton" layoutX="458.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="128.0" text="Удалить" />
       <TableView fx:id="tableView" layoutX="4.0" layoutY="74.0" prefHeight="181.0" prefWidth="592.0">
         <columns>
           <TableColumn fx:id="surname" prefWidth="100.0" text="Фамилия" />
@@ -28,7 +28,7 @@
             <TableColumn fx:id="faculty" prefWidth="100.0" text="Факультет" />
         </columns>
       </TableView>
-      <Label layoutX="26.0" layoutY="287.0" text="Выберите номер зачетки студента для удаления:" />
-      <ChoiceBox fx:id="deleteBox" layoutX="322.0" layoutY="282.0" prefWidth="150.0" />
+      <Label layoutX="26.0" layoutY="287.0" prefHeight="17.0" prefWidth="330.0" text="Выберите номер зачетки студента для удаления:" />
+      <ChoiceBox fx:id="deleteBox" layoutX="364.0" layoutY="282.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

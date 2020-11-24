@@ -13,7 +13,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="118.0" layoutY="142.0" text="Выберите Действие" />
+      <Label layoutX="92.0" layoutY="142.0" prefHeight="17.0" prefWidth="142.0" text="Выберите Действие" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="349.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Назад" />
       <Button fx:id="goButton" layoutX="513.0" layoutY="349.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Далее" />
       <ChoiceBox fx:id="choiceBox" layoutX="250.0" layoutY="137.0" prefHeight="27.0" prefWidth="278.0" />

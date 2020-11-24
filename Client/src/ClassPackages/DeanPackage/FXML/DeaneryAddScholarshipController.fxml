@@ -28,9 +28,9 @@
             <TableColumn fx:id="rating" prefWidth="58.0" text="Рейтинг" />
         </columns>
       </TableView>
-      <Label layoutX="32.0" layoutY="247.0" text="Выберите вид стипендии:" />
-      <Label layoutX="29.0" layoutY="295.0" text="Выберите номер зачетки назначения:" />
+      <Label layoutX="32.0" layoutY="247.0" prefHeight="17.0" prefWidth="178.0" text="Выберите вид стипендии:" />
+      <Label layoutX="29.0" layoutY="295.0" prefHeight="17.0" prefWidth="258.0" text="Выберите номер зачетки назначения:" />
       <ChoiceBox fx:id="scholarBox" layoutX="247.0" layoutY="242.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="numberBox" layoutX="262.0" layoutY="290.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="numberBox" layoutX="300.0" layoutY="290.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

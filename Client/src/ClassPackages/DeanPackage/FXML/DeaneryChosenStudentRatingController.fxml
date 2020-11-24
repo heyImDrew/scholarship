@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Label layoutX="32.0" layoutY="87.0" text="Вы выбрали отображение: " />
+      <Label layoutX="11.0" layoutY="87.0" prefHeight="17.0" prefWidth="177.0" text="Вы выбрали отображение: " />
       <Text fx:id="text" layoutX="188.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="78.22900390625" />
       <TableView fx:id="tableView" layoutX="10.0" layoutY="119.0" prefHeight="200.0" prefWidth="589.0">
         <columns>

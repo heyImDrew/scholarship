@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `scholarship`.`Deanery` (
   `patronymic` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
   `room` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idDeanery`))
 ENGINE = InnoDB;
@@ -174,7 +175,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 INSERT INTO `Accountant`(`idAccountant`,`name`,`lastName`,`patronymic`,`phone`,`login`,`password`) VALUES (1,'Галина','Иванова','Ивановна','2840712','galina','ivanova');
 
 
-INSERT INTO `Deanery` (`idDeanery`,`name`,`lastName`,`patronymic`,`phone`,`room`,`password`) VALUES (1,'Сергей','Ломан','Игоревич','2471213','810','loman'), (2,'Сергей','Ломан','Игоревич','2471213','810','loman');
+INSERT INTO `Deanery` (`idDeanery`,`name`,`lastName`,`patronymic`,`phone`,`room`,`login`,`password`) VALUES (1,'Сергей','Ломан','Игоревич','2471213','810','sergey','loman'), (2,'Иван','Иванов','Максимович','2471213','410','ivan','ivanov');
 
 INSERT INTO `Session` (`idSession`,`avgMark`) VALUES (1,'9'), (2,'8'), (3,'9'), (4,'5'), (5,'6') ,(6,'6');
 

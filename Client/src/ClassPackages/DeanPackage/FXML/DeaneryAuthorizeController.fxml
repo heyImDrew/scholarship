@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClassPackages.DeanPackage.Controllers.AuthorizeController">
    <children>
-      <Label layoutX="210.0" layoutY="137.0" prefHeight="17.0" prefWidth="181.0" text="Добро Пожаловать в деканат!" />
+      <Label layoutX="122.0" layoutY="137.0" prefHeight="28.0" prefWidth="384.0" text="Добро Пожаловать в деканат!">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
       <TextField fx:id="loginField" layoutX="220.0" layoutY="187.0" />
       <TextField fx:id="passwordField" layoutX="220.0" layoutY="230.0" />
       <Label layoutX="132.0" layoutY="192.0" prefHeight="17.0" prefWidth="69.0" text="Логин:" />
       <Label layoutX="132.0" layoutY="235.0" prefHeight="17.0" prefWidth="69.0" text="Пароль:" />
-      <Button fx:id="enterButton" layoutX="153.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Вход" />
+      <Button fx:id="enterButton" layoutX="220.0" layoutY="302.0" mnemonicParsing="false" onAction="#enterButton" prefHeight="54.0" prefWidth="97.0" text="Вход" />
       <Button fx:id="registerButton" layoutX="333.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Регистрация" />
-      <ImageView fitHeight="146.0" fitWidth="251.0" layoutX="175.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/12_100229_1_79522.jpg" />
-         </image>
-      </ImageView>
+      <Button fx:id="enterButton1" layoutX="104.0" layoutY="302.0" mnemonicParsing="false" onAction="#enterButton" prefHeight="54.0" prefWidth="97.0" text="Назад" />
    </children>
 </AnchorPane>
