@@ -22,4 +22,8 @@ public class AuthorizeController {
         String pass = passwordField.getText();
         System.out.println("Login: " + log + ". Password " + pass);
     }
+
+    public void backStudent() {
+        System.out.println("BACK");
+    }
 }
