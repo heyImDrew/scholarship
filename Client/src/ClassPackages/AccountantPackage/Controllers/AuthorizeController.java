@@ -1,4 +1,4 @@
-package ClassPackages.DeanPackage.Controllers;
+package ClassPackages.AccountantPackage.Controllers;
 
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -11,24 +11,25 @@ public class AuthorizeController {
     public TextField passwordField;
     public static Stage CurrentStage;
 
-    public void enterDean() throws IOException {
+    public void enterAccountant() throws IOException {
         CurrentStage = (Stage) loginField.getScene().getWindow();
         String log = loginField.getText();
         String pass = passwordField.getText();
         System.out.println("Login: " + log + ". Password " + pass);
     }
 
-    public void registerDean() throws IOException {
+    public void registerAccountant() throws IOException {
         CurrentStage = (Stage) loginField.getScene().getWindow();
         String log = loginField.getText();
         String pass = passwordField.getText();
         System.out.println("Login: " + log + ". Password " + pass);
     }
 
-    public void backDean() throws IOException {
+    public void backAccountant() throws IOException {
         CurrentStage = (Stage) loginField.getScene().getWindow();
         String log = loginField.getText();
         String pass = passwordField.getText();
         System.out.println("Login: " + log + ". Password " + pass);
     }
+
 }
