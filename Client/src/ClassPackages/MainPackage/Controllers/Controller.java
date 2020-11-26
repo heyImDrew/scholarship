@@ -25,10 +25,30 @@ public class Controller {
     }
 
     public void workerAction() throws IOException {
-        Handler handler = Client.get_handler();
+        CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../MainPackage/FXML/DeaneryAccountantAuthorizeMenu.fxml"));
         newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
+        newStage.setScene(new Scene(root, 600, 400));
+        newStage.show();
+        CurrentStage = newStage;
+    }
+
+    public void deanAction() throws IOException {
+        CurrentStage.close();
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAuthorizeController.fxml"));
+        newStage.setTitle("Dean Authorize | BSUIR IEF 2020");
+        newStage.setScene(new Scene(root, 600, 400));
+        newStage.show();
+        CurrentStage = newStage;
+    }
+
+    public void accountantAction() throws IOException {
+        CurrentStage.close();
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantAuthorizeController.fxml"));
+        newStage.setTitle("Accountant Authorize | BSUIR IEF 2020");
         newStage.setScene(new Scene(root, 600, 400));
         newStage.show();
         CurrentStage = newStage;
