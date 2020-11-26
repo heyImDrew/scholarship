@@ -16,8 +16,8 @@
       <TextField fx:id="passwordField" layoutX="220.0" layoutY="230.0" />
       <Label layoutX="132.0" layoutY="192.0" prefHeight="17.0" prefWidth="69.0" text="Логин:" />
       <Label layoutX="132.0" layoutY="235.0" prefHeight="17.0" prefWidth="69.0" text="Пароль:" />
-      <Button fx:id="enterButton" layoutX="220.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Вход" />
-      <Button fx:id="registerButton" layoutX="333.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Регистрация" />
-      <Button fx:id="backButton" layoutX="104.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Назад" />
+      <Button fx:id="enterButton" onAction="#enterDean" layoutX="220.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Вход" />
+      <Button fx:id="registerButton" onAction="#registerDean"  layoutX="333.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Регистрация" />
+      <Button fx:id="backButton" onAction="#backDean"  layoutX="104.0" layoutY="302.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="97.0" text="Назад" />
    </children>
 </AnchorPane>
