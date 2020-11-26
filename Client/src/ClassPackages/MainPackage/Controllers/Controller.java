@@ -47,10 +47,14 @@ public class Controller {
     public void accountantAction() throws IOException {
         CurrentStage.close();
         Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantAuthorizeController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantAuthorize.fxml"));
         newStage.setTitle("Accountant Authorize | BSUIR IEF 2020");
         newStage.setScene(new Scene(root, 600, 400));
         newStage.show();
         CurrentStage = newStage;
+    }
+
+    public void back() {
+        System.out.println("BACK");
     }
 }

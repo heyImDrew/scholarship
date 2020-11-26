@@ -25,11 +25,8 @@ public class AuthorizeController {
         System.out.println("Login: " + log + ". Password " + pass);
     }
 
-    public void backAccountant() throws IOException {
-        CurrentStage = (Stage) loginField.getScene().getWindow();
-        String log = loginField.getText();
-        String pass = passwordField.getText();
-        System.out.println("Login: " + log + ". Password " + pass);
+    public void backAccountant() {
+        System.out.println("BACK");
     }
 
 }
