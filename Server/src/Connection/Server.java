@@ -12,6 +12,14 @@ public class Server {
                 Handler handler = new Handler(server);
                 new Thread(() -> {
                     System.out.println("actions here");
+                    boolean run = true;
+                    while(run) {
+                        try {
+                            String action = (String)handler.read();
+                            System.out.println(action);
+                        }
+                        catch (ClassNotFoundException | IOException e) {};
+                    }
                     try { handler.close(); } catch (IOException e) {};
                 }).start();
             }

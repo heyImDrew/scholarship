@@ -14,14 +14,15 @@ import java.util.Scanner;
 public class Client extends Application {
     private static Handler handler;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         handler = new Handler("127.0.0.1", 8070);
-        System.out.println("Connected to server");
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        handler.write(new String("START CLIENT"));
+
         if (Controller.CurrentStage != null) {Controller.CurrentStage.close();}
         Parent root = FXMLLoader.load(getClass().getResource("../FXML/MainAuthorize.fxml"));
         primaryStage.setTitle("Scholarship calculator | BSUIR IEF 2020");
