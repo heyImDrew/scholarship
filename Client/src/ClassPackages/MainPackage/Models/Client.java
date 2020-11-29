@@ -15,7 +15,7 @@ public class Client extends Application {
     private static Handler handler;
 
     public static void main(String[] args) {
-        handler = new Handler("127.0.0.1", 8080);
+        handler = new Handler("127.0.0.1", 8070);
         System.out.println("Connected to server");
         launch(args);
     }

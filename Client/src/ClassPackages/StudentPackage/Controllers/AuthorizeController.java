@@ -23,7 +23,14 @@ public class AuthorizeController {
         System.out.println("Login: " + log + ". Password " + pass);
     }
 
-    public void backStudent() {
-        System.out.println("BACK");
+    public void backStudent() throws IOException {
+        CurrentStage = (Stage) loginField.getScene().getWindow();
+        CurrentStage.close();
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../../MainPackage/FXML/MainAuthorize.fxml"));
+        newStage.setTitle("Main Authorize | BSUIR IEF 2020");
+        newStage.setScene(new Scene(root, 600, 400));
+        newStage.show();
+        CurrentStage = newStage;
     }
 }

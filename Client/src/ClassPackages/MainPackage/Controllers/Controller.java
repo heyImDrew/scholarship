@@ -1,7 +1,7 @@
 package ClassPackages.MainPackage.Controllers;
 
 import ClassPackages.MainPackage.Models.Client;
-import ClassPackages.MainPackage.Models.Handler;
+//import ClassPackages.MainPackage.Models.Handler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -54,7 +54,13 @@ public class Controller {
         CurrentStage = newStage;
     }
 
-    public void back() {
-        System.out.println("BACK");
+    public void back() throws IOException {
+        CurrentStage.close();
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("../FXML/MainAuthorize.fxml"));
+        newStage.setTitle("Main Authorize | BSUIR IEF 2020");
+        newStage.setScene(new Scene(root, 600, 400));
+        newStage.show();
+        CurrentStage = newStage;
     }
 }
