@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Label layoutX="141.0" layoutY="16.0" text="Контактная информация">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="26.0" layoutY="104.0" text="Выбор деканата:" />
+      <Label layoutX="26.0" layoutY="158.0" text="Телефон:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="phone" layoutX="145.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Label layoutX="28.0" layoutY="192.0" text="Декан:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="deanery" layoutX="139.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <Label layoutX="28.0" layoutY="225.0" text="Кабинет:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Text fx:id="room" layoutX="139.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+         <font>
+            <Font size="19.0" />
+         </font></Text>
+      <ChoiceBox fx:id="deaneryBox" layoutX="139.0" layoutY="99.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

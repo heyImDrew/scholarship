@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
+         <children>
+            <Label layoutX="167.0" layoutY="18.0" text="Удаление студента">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="backbutton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="deleteButton" layoutX="458.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="128.0" text="Удалить" />
+      <TableView fx:id="tableView" layoutX="4.0" layoutY="74.0" prefHeight="181.0" prefWidth="592.0">
+        <columns>
+          <TableColumn fx:id="surname" prefWidth="100.0" text="Фамилия" />
+          <TableColumn fx:id="name" prefWidth="92.0" text="Имя" />
+            <TableColumn fx:id="patronymic" prefWidth="92.0" text="Отчество" />
+            <TableColumn fx:id="group" prefWidth="101.0" text="Группа" />
+            <TableColumn fx:id="recordBook" prefWidth="106.0" text="Зачетка" />
+            <TableColumn fx:id="faculty" prefWidth="100.0" text="Факультет" />
+        </columns>
+      </TableView>
+      <Label layoutX="26.0" layoutY="287.0" prefHeight="17.0" prefWidth="330.0" text="Выберите номер зачетки студента для удаления:" />
+      <ChoiceBox fx:id="deleteBox" layoutX="364.0" layoutY="282.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
