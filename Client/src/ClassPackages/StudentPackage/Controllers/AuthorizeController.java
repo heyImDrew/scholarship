@@ -15,8 +15,11 @@ public class AuthorizeController {
 
     public TextField loginField;
     public TextField passwordField;
+    Handler handler = Client.get_handler();
     
     public void enterStudent() throws IOException {
+        handler.write(new String("enterStudent"));
+
         String log = loginField.getText();
         String pass = passwordField.getText();
         System.out.println("Login: " + log + ". Password " + pass);

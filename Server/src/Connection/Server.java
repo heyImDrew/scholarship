@@ -11,12 +11,15 @@ public class Server {
             while (true) {
                 Handler handler = new Handler(server);
                 new Thread(() -> {
-                    System.out.println("actions here");
                     boolean run = true;
                     while(run) {
                         try {
-                            String action = (String)handler.read();
-                            System.out.println(action);
+                            Object action = (Object)handler.read();
+
+                            // MAKE ACTION CLASS INSTEAD OF "IF" CLAUSE
+                            if (action.equals("enterStudent")) {
+                                System.out.println("student login");
+                            }
                         }
                         catch (ClassNotFoundException | IOException e) {};
                     }
