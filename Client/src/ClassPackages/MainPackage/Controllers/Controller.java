@@ -45,7 +45,7 @@ public class Controller {
 
         CurrentStage.close();
         Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAuthorizeController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAuthorize.fxml"));
         newStage.setTitle("Dean Authorize | BSUIR IEF 2020");
         newStage.setScene(new Scene(root, 600, 400));
         newStage.show();

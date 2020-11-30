@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClassPackages.AccountantPackage.Controllers.ScholarshipTransController">
    <children>
       <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
@@ -16,7 +16,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" onAction="#backButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
       <TableView fx:id="tableView" layoutX="10.0" layoutY="119.0" prefHeight="131.0" prefWidth="589.0">
          <columns>
             <TableColumn fx:id="surnameColumn" prefWidth="101.0" text="Фамилия" />

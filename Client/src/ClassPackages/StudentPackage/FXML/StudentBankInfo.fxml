@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" fx:controller="ClassPackages.StudentPackage.Controllers.BankInfoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
@@ -26,7 +26,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="72.0" text="Назад" />
+      <Button fx:id="backButon" layoutX="14.0" onAction="#backButton" layoutY="347.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="72.0" text="Назад" />
       <Label layoutX="72.0" layoutY="156.0" prefHeight="24.0" prefWidth="124.0" text="Владелец:">
          <font>
             <Font size="19.0" />

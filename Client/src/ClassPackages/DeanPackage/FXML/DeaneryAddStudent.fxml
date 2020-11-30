@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" fx:controller="ClassPackages.DeanPackage.Controllers.AddStudentController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
@@ -16,7 +16,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" text="Назад" />
+      <Button fx:id="backButton" layoutX="14.0" onAction="#backButton" layoutY="369.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" text="Назад" />
       <Button fx:id="addButton" layoutX="475.0" layoutY="369.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Добавить" />
       <Label layoutX="17.0" layoutY="82.0" text="Личные данные:" />
       <TextField fx:id="surnameField" layoutX="17.0" layoutY="107.0" prefHeight="27.0" prefWidth="167.0" promptText="Фамилия" />

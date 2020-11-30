@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" fx:controller="ClassPackages.DeanPackage.Controllers.ScholarshipInfoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: orange;">
          <children>
@@ -16,7 +16,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
+      <Button fx:id="backButton" onAction="#backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
       <Button fx:id="goButton" layoutX="506.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="80.0" text="Далее" />
       <Label layoutX="17.0" layoutY="84.0" text="Количество студентов в системе:" />
       <Label layoutX="16.0" layoutY="158.0" text="Номер зачетки:" />
