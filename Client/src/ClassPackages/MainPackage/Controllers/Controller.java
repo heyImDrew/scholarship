@@ -17,8 +17,6 @@ public class Controller {
     Handler handler = Client.get_handler();
 
     public void studentAction() throws IOException {
-        handler.write(new String("STUDENT"));
-
         CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentAuthorize.fxml"));
@@ -29,8 +27,6 @@ public class Controller {
     }
 
     public void workerAction() throws IOException {
-        handler.write(new String("WORKER"));
-
         CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../MainPackage/FXML/DeaneryAccountantAuthorizeMenu.fxml"));
@@ -41,8 +37,6 @@ public class Controller {
     }
 
     public void deanAction() throws IOException {
-        handler.write(new String("DEAN"));
-
         CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAuthorize.fxml"));
@@ -53,8 +47,6 @@ public class Controller {
     }
 
     public void accountantAction() throws IOException {
-        handler.write(new String("ACCOUNANT"));
-
         CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantAuthorize.fxml"));

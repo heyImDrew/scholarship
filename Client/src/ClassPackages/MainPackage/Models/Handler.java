@@ -30,6 +30,7 @@ public class Handler implements Closeable {
     }
 
     public void write(Object object) throws IOException {
+        out.flush();
         out.writeObject(object);
     }
 

@@ -20,7 +20,7 @@ public class ActionsController {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
         Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/StudentAuthorize.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentAuthorize.fxml"));
         newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
         newStage.setScene(new Scene(root, 600, 400));
         newStage.show();

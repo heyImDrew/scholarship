@@ -21,8 +21,6 @@ public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        handler.write(new String("START CLIENT"));
-
         if (Controller.CurrentStage != null) {Controller.CurrentStage.close();}
         Parent root = FXMLLoader.load(getClass().getResource("../FXML/MainAuthorize.fxml"));
         primaryStage.setTitle("Scholarship calculator | BSUIR IEF 2020");

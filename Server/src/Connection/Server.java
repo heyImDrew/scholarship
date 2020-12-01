@@ -15,13 +15,10 @@ public class Server {
                     while(run) {
                         try {
                             Object action = (Object)handler.read();
-
-                            // MAKE ACTION CLASS INSTEAD OF "IF" CLAUSE
-                            if (action.equals("enterStudent")) {
-                                System.out.println("student login");
-                            }
+                            Action act = new Action();
+                            act.execute(handler, (String) action);
                         }
-                        catch (ClassNotFoundException | IOException e) {};
+                        catch (ClassNotFoundException | IOException | SQLException e) {};
                     }
                     try { handler.close(); } catch (IOException e) {};
                 }).start();
