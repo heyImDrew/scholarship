@@ -14,7 +14,7 @@ public class Action {
                 String pass = (String)handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT * FROM scholarship.student WHERE login = ? AND password = ?";
+                String query = "SELECT * FROM scholarship.Student WHERE login = ? AND password = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setString(1, log);
                 preparedStmt.setString(2, pass);
@@ -33,7 +33,7 @@ public class Action {
                 String pass = (String)handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT * FROM scholarship.deanery WHERE login = ? AND password = ?";
+                String query = "SELECT * FROM scholarship.Deanery WHERE login = ? AND password = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setString(1, log);
                 preparedStmt.setString(2, pass);
@@ -52,7 +52,7 @@ public class Action {
                 String pass = (String)handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT * FROM scholarship.accountant WHERE login = ? AND password = ?";
+                String query = "SELECT * FROM scholarship.Accountant WHERE login = ? AND password = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setString(1, log);
                 preparedStmt.setString(2, pass);
