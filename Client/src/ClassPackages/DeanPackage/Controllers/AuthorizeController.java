@@ -3,6 +3,7 @@ package ClassPackages.DeanPackage.Controllers;
 import ClassPackages.MainPackage.Controllers.Controller;
 import ClassPackages.MainPackage.Models.Client;
 import ClassPackages.MainPackage.Models.Handler;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,23 +32,15 @@ public class AuthorizeController {
             // Switch to new scene
             Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryActions.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryActions.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         }
     }
 
     public void backDean() throws IOException {
         Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../MainPackage/FXML/DeaneryAccountantAuthorizeMenu.fxml"));
-        newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../MainPackage/FXML/DeaneryAccountantAuthorizeMenu.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 }

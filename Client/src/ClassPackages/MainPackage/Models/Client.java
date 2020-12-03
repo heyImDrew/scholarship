@@ -22,11 +22,8 @@ public class Client extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         if (Controller.CurrentStage != null) {Controller.CurrentStage.close();}
-        Parent root = FXMLLoader.load(getClass().getResource("../FXML/MainAuthorize.fxml"));
-        primaryStage.setTitle("Scholarship calculator | BSUIR IEF 2020");
-        primaryStage.setScene(new Scene(root, 600, 400));
-        Controller.CurrentStage = primaryStage;
-        primaryStage.show();
+        ScreenHandler screen = new ScreenHandler("../FXML/MainAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 
     public static Handler get_handler() {
