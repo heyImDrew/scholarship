@@ -1,6 +1,7 @@
 package ClassPackages.StudentPackage.Controllers;
 
 import ClassPackages.MainPackage.Controllers.Controller;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,12 +26,8 @@ public class ActionsController implements Initializable {
     public void backButton(ActionEvent actionEvent) throws IOException {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentAuthorize.fxml"));
-        newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 
     private void loadData() {
@@ -53,39 +50,23 @@ public class ActionsController implements Initializable {
         if (actions == "Информация о карте") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentBankInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentBankInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Контактная информация") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentContactInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentContactInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Информация об экзаменах"){
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentExamInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentExamInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Информация о стипендиях"){
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentScholarshipInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentScholarshipInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         }
     }
 }

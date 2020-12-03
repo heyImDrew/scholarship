@@ -1,6 +1,7 @@
 package ClassPackages.StudentPackage.Controllers;
 
 import ClassPackages.MainPackage.Controllers.Controller;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,11 +19,7 @@ public class ExamInfoController {
     public void backButton(ActionEvent actionEvent) throws IOException {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentActions.fxml"));
-        newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentActions.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 }

@@ -1,6 +1,7 @@
 package ClassPackages.DeanPackage.Controllers;
 
 import ClassPackages.MainPackage.Controllers.Controller;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,12 +26,8 @@ public class ActionsController implements Initializable {
     public void backButton(ActionEvent actionEvent) throws IOException {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAuthorize.fxml"));
-        newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 
     public void goButton(ActionEvent actionEvent) throws IOException {
@@ -38,66 +35,38 @@ public class ActionsController implements Initializable {
         if (actions == "Назначить стипендию") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAddScholarship.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryAddScholarship.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Добавить студента") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryAddStudent.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryAddStudent.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Удалить студента") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryDeleteStudent.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryDeleteStudent.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Изменить студента") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryEditStudent.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryEditStudent.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Успеваемость студентов") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryPerfomanceACtions.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryPerfomanceActions.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Информация о стипендии") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryScholarshipInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryScholarshipInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Информация о студентах") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryShowStudentsInfo.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryShowStudentsInfo.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         }
     }
 

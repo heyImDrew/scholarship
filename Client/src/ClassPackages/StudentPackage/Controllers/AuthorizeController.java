@@ -3,6 +3,7 @@ package ClassPackages.StudentPackage.Controllers;
 import ClassPackages.MainPackage.Controllers.Controller;
 import ClassPackages.MainPackage.Models.Client;
 import ClassPackages.MainPackage.Models.Handler;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,23 +32,15 @@ public class AuthorizeController {
             // Switch to new scene
             Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentActions.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../StudentPackage/FXML/StudentActions.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         }
     }
 
     public void backStudent() throws IOException {
         Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../MainPackage/FXML/MainAuthorize.fxml"));
-        newStage.setTitle("Main Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../MainPackage/FXML/MainAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 }

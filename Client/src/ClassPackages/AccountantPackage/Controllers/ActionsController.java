@@ -1,6 +1,7 @@
 package ClassPackages.AccountantPackage.Controllers;
 
 import ClassPackages.MainPackage.Controllers.Controller;
+import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,12 +29,8 @@ public class ActionsController implements Initializable {
     public void backButton(ActionEvent actionEvent) throws IOException {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
-        Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantAuthorize.fxml"));
-        newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-        newStage.setScene(new Scene(root, 600, 400));
-        newStage.show();
-        Controller.CurrentStage = newStage;
+        ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
     }
 
     public void goAction(ActionEvent actionEvent) throws IOException {
@@ -41,30 +38,18 @@ public class ActionsController implements Initializable {
         if (actions == "Отчет") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantReport.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantReport.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "История переводов") {
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantTransactionsHistory.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantTransactionsHistory.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "Изменение даты перевода"){
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            Stage newStage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/AccountantScholarshipTransaction.fxml"));
-            newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
-            newStage.setScene(new Scene(root, 600, 400));
-            newStage.show();
-            Controller.CurrentStage = newStage;
+            ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantScholarshipTransaction.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
         }
     }
 
