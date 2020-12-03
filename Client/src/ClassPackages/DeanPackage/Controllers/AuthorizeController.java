@@ -40,12 +40,6 @@ public class AuthorizeController {
         }
     }
 
-    public void registerDean() throws IOException {
-        String log = loginField.getText();
-        String pass = passwordField.getText();
-        System.out.println("Login: " + log + ". Password " + pass);
-    }
-
     public void backDean() throws IOException {
         Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
         Controller.CurrentStage.close();
