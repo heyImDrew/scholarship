@@ -19,7 +19,7 @@ public class ExamInfoController {
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
         Stage newStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("../../AccountantPackage/FXML/StudentActions.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../../StudentPackage/FXML/StudentActions.fxml"));
         newStage.setTitle("Worker Authorize | BSUIR IEF 2020");
         newStage.setScene(new Scene(root, 600, 400));
         newStage.show();

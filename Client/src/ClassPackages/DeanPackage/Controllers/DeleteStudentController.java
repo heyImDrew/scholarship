@@ -11,10 +11,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class DeleteStudentController {
-    public Button backButton;
+    public Button backbutton;
 
     public void backButton(ActionEvent actionEvent) throws IOException {
-        Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
+        Controller.CurrentStage = (Stage) backbutton.getScene().getWindow();
         Controller.CurrentStage.close();
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("../../DeanPackage/FXML/DeaneryActions.fxml"));

@@ -15,7 +15,7 @@ public class Client extends Application {
     private static Handler handler;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        handler = new Handler("127.0.0.1", 8060);
+        handler = new Handler("127.0.0.1", 8040);
         launch(args);
     }
 
