@@ -66,6 +66,25 @@ public class Action {
                 connection.close();
                 break;
             }
+
+            case "regAccountant": {
+                String log = (String)handler.read();
+                String pass = (String)handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String count = "SELECT COUNT(*) FROM scholarship.Accountant";
+                Statement statement = connection.createStatement();
+                ResultSet count_acc_set = statement.executeQuery(count);
+                count_acc_set.next();
+                int next_id = count_acc_set.getInt("COUNT(*)");
+                String query = "INSERT INTO scholarship.Accountant (idAccountant, name, lastName, patronymic, phone, login, password) VALUES (?, 'Anon', 'Anon', 'Anon', 'None', ?, ?)";
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, next_id + 1);
+                preparedStmt.setString(2, log);
+                preparedStmt.setString(3, pass);
+                preparedStmt.execute();
+                connection.close();
+            }
         }
     }
 }
