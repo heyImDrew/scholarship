@@ -26,10 +26,8 @@ public class AuthorizeController {
         handler.write(pass);
         String response = (String) handler.read();
         if (!response.equals("Nothing")) {
-            // Print ID
-            System.out.println("ID: " + response);
-
-            // Switch to new scene
+            handler.write("returnId");
+            handler.write(Integer.valueOf(response));
             Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryActions.fxml", "BSUIR TASK 2020");

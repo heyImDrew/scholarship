@@ -85,6 +85,11 @@ public class Action {
                 preparedStmt.execute();
                 connection.close();
             }
+
+            case "returnId": {
+                Integer id = (Integer) handler.read();
+                handler.write(id);
+            }
         }
     }
 }

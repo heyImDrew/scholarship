@@ -26,27 +26,13 @@ public class AuthorizeController {
         handler.write(pass);
         String response = (String) handler.read();
         if (!response.equals("Nothing")) {
-            // Print ID
-            System.out.println("ID: " + response);
-
-            // Switch to new scene
+            handler.write("returnId");
+            handler.write(Integer.valueOf(response));
             Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantActions.fxml", "BSUIR TASK 2020");
             Controller.CurrentStage = screen.get_new_stage();
         }
-    }
-
-    public void registerAccountant() throws IOException {
-        handler.write(new String("regAccountant"));
-        String log = loginField.getText();
-        String pass = passwordField.getText();
-        handler.write(log);
-        handler.write(pass);
-        Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
-        Controller.CurrentStage.close();
-        ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantAuthorize.fxml", "BSUIR TASK 2020");
-        Controller.CurrentStage = screen.get_new_stage();
     }
 
     public void backAccountant() throws IOException {
