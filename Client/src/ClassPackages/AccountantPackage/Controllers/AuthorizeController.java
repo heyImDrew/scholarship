@@ -35,6 +35,18 @@ public class AuthorizeController {
         }
     }
 
+    public void registerAccountant() throws IOException {
+        handler.write(new String("regAccountant"));
+        String log = loginField.getText();
+        String pass = passwordField.getText();
+        handler.write(log);
+        handler.write(pass);
+        Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
+        Controller.CurrentStage.close();
+        ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantAuthorize.fxml", "BSUIR TASK 2020");
+        Controller.CurrentStage = screen.get_new_stage();
+    }
+
     public void backAccountant() throws IOException {
         Controller.CurrentStage = (Stage) loginField.getScene().getWindow();
         Controller.CurrentStage.close();

@@ -84,11 +84,18 @@ public class Action {
                 preparedStmt.setString(3, pass);
                 preparedStmt.execute();
                 connection.close();
+                break;
             }
 
             case "returnId": {
                 Integer id = (Integer) handler.read();
                 handler.write(id);
+                break;
+            }
+
+            case "loadExamInfo": {
+                System.out.println("ExamInfo");
+                break;
             }
         }
     }
