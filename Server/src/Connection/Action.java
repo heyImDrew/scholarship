@@ -128,6 +128,41 @@ public class Action {
                 handler.write(r);
                 break;
             }
+
+            case "loadBankInfo": {
+                Integer student_id = (Integer) handler.read();
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT name, lastName, patronymic, Scholarship_idScholarship, bankCard FROM scholarship.student WHERE idStudent = ?";
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, student_id);
+                ResultSet res = preparedStmt.executeQuery();
+                res.next();
+
+                int scholarship_id = res.getInt("Scholarship_idScholarship");
+
+                String query1 = "SELECT * FROM scholarship.scholarship WHERE idScholarship = ?;";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
+                preparedStmt1.setInt(1, scholarship_id);
+                ResultSet res1 = preparedStmt1.executeQuery();
+                while (res1.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(res.getString("lastName") + " " + res.getString("name") + " " + res.getString("patronymic"));
+                    r.add(res.getString("bankCard"));
+                    r.add(res1.getString("date"));
+                    System.out.println(r.get(0));
+                    System.out.println(r.get(1));
+                    System.out.println(r.get(2));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
         }
     }
 }

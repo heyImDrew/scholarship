@@ -11,15 +11,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BankInfoController implements Initializable, StoreIdInterface {
 
     public Button backButton;
+    public Text cardText;
+    public Text ownerText;
+    public Text lastdateText;
     int stored_id;
     Handler handler = Client.get_handler();
 
@@ -45,8 +50,19 @@ public class BankInfoController implements Initializable, StoreIdInterface {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            handler.write("loadBankInfo");
             set_stored_id((Integer)handler.read());
             System.out.println(get_stored_id());
+            handler.write(get_stored_id());
+            while (true) {
+                ArrayList data = (ArrayList) handler.read();
+                if (data.get(0).equals("stop")) {
+                    return;
+                }
+                cardText.setText((String) data.get(1));
+                ownerText.setText((String) data.get(0));
+                lastdateText.setText((String) data.get(2));
+            }
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
