@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `scholarship`.`Scholarship` (
   `idScholarship` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
   `date` VARCHAR(45) NOT NULL,
-  `amount` VARCHAR(45) NOT NULL,
+  `amount` INT NOT NULL,
   PRIMARY KEY (`idScholarship`))
 ENGINE = InnoDB;
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `scholarship`.`Deanery` (
   `lastName` VARCHAR(45) NOT NULL,
   `patronymic` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(45) NOT NULL,
-  `room` VARCHAR(45) NOT NULL,
+  `room` INT NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idDeanery`))
@@ -102,7 +102,7 @@ DROP TABLE IF EXISTS `scholarship`.`Session` ;
 
 CREATE TABLE IF NOT EXISTS `scholarship`.`Session` (
   `idSession` INT NOT NULL AUTO_INCREMENT,
-  `avgMark` VARCHAR(45) NOT NULL,
+  `avgMark` FLOAT NOT NULL,
   PRIMARY KEY (`idSession`))
 ENGINE = InnoDB;
 
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `scholarship`.`Exam` (
   `idExam` INT NOT NULL AUTO_INCREMENT,
   `subject` VARCHAR(45) NOT NULL,
   `date` VARCHAR(45) NOT NULL,
-  `mark` VARCHAR(45) NOT NULL,
+  `mark` INT NOT NULL,
   `Session` INT NOT NULL,
   PRIMARY KEY (`idExam`),
   INDEX `fk_Exam_Session1_idx` (`Session` ASC) VISIBLE,

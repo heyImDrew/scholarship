@@ -16,20 +16,21 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" onAction="#backButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <TableView fx:id="tableView" layoutX="10.0" layoutY="119.0" prefHeight="131.0" prefWidth="589.0">
-         <columns>
-            <TableColumn fx:id="surnameColumn" prefWidth="101.0" text="Фамилия" />
-            <TableColumn fx:id="nameColumn" prefWidth="83.0" text="Имя " />
-            <TableColumn fx:id="potronymColomn" prefWidth="111.0" text="Отчество" />
-            <TableColumn fx:id="groupColomn" prefWidth="114.0" text="Группа" />
-            <TableColumn fx:id="cardColomn" prefWidth="179.0" text="Карта" />
-         </columns>
-      </TableView>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#backButton" prefHeight="38.0" prefWidth="66.0" text="Назад" />
       <Label layoutX="17.0" layoutY="275.0" text="Выберите номер карты студента:" />
       <Label layoutX="17.0" layoutY="308.0" text="Изменить дату перевода:" />
       <TextField fx:id="changeDateButton" layoutX="178.0" layoutY="303.0" />
       <Button fx:id="changeButton" layoutX="300.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Изменить" />
       <ChoiceBox fx:id="cardButton" layoutX="225.0" layoutY="270.0" prefWidth="150.0" />
+      <Label layoutX="428.0" layoutY="74.0" text="карта" />
+      <Label layoutX="335.0" layoutY="74.0" text="группа" />
+      <Label layoutX="234.0" layoutY="74.0" text="отчество" />
+      <Label layoutX="154.0" layoutY="74.0" text="имя" />
+      <Label layoutX="61.0" layoutY="74.0" text="фамилия" />
+      <ListView layoutX="396.0" layoutY="91.0" prefHeight="164.0" prefWidth="193.0" />
+      <ListView layoutX="303.0" layoutY="91.0" prefHeight="164.0" prefWidth="93.0" />
+      <ListView layoutX="210.0" layoutY="91.0" prefHeight="164.0" prefWidth="93.0" />
+      <ListView layoutX="122.0" layoutY="91.0" prefHeight="164.0" prefWidth="93.0" />
+      <ListView layoutX="29.0" layoutY="91.0" prefHeight="164.0" prefWidth="93.0" />
    </children>
 </AnchorPane>
