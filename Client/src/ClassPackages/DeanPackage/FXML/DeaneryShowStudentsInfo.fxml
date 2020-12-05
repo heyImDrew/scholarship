@@ -23,13 +23,13 @@
       <Label layoutX="205.0" layoutY="85.0" text="отчество" />
       <Label layoutX="125.0" layoutY="85.0" text="имя" />
       <Label layoutX="32.0" layoutY="85.0" text="фамилия" />
-      <ListView layoutX="444.0" layoutY="102.0" prefHeight="200.0" prefWidth="73.0" />
-      <ListView layoutX="352.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
-      <ListView layoutX="274.0" layoutY="102.0" prefHeight="200.0" prefWidth="79.0" />
-      <ListView layoutX="181.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
-      <ListView layoutX="93.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
-      <ListView layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
-      <ListView layoutX="517.0" layoutY="102.0" prefHeight="200.0" prefWidth="73.0" />
+      <ListView fx:id="faculty" layoutX="444.0" layoutY="102.0" prefHeight="200.0" prefWidth="73.0" />
+      <ListView fx:id="recordBook" layoutX="352.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
+      <ListView fx:id="group" layoutX="274.0" layoutY="102.0" prefHeight="200.0" prefWidth="79.0" />
+      <ListView fx:id="patronymic" layoutX="181.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
+      <ListView fx:id="name" layoutX="93.0" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
+      <ListView fx:id="lastName" layoutY="102.0" prefHeight="200.0" prefWidth="93.0" />
+      <ListView fx:id="avgMark" layoutX="517.0" layoutY="102.0" prefHeight="200.0" prefWidth="73.0" />
       <Label layoutX="539.0" layoutY="85.0" text="рейтинг" />
    </children>
 </AnchorPane>

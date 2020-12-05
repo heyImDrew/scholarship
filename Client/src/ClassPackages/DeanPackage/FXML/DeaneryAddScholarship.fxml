@@ -22,12 +22,12 @@
       <Label layoutX="29.0" layoutY="295.0" prefHeight="17.0" prefWidth="258.0" text="Выберите номер зачетки назначения:" />
       <ChoiceBox fx:id="scholarBox" layoutX="247.0" layoutY="242.0" prefWidth="150.0" />
       <ChoiceBox fx:id="numberBox" layoutX="300.0" layoutY="290.0" prefWidth="150.0" />
-      <ListView layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
-      <ListView layoutX="105.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
-      <ListView layoutX="212.0" layoutY="100.0" prefHeight="131.0" prefWidth="92.0" />
-      <ListView layoutX="303.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
-      <ListView layoutX="410.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
-      <ListView layoutX="493.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
+      <ListView fx:id="lastName" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
+      <ListView fx:id="name" layoutX="105.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
+      <ListView fx:id="group" layoutX="212.0" layoutY="100.0" prefHeight="131.0" prefWidth="92.0" />
+      <ListView fx:id="recordBook" layoutX="303.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
+      <ListView fx:id="faculty" layoutX="410.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
+      <ListView fx:id="avgMark" layoutX="493.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
       <Label layoutX="32.0" layoutY="83.0" text="фамилия" />
       <Label layoutX="143.0" layoutY="83.0" text="имя" />
       <Label layoutX="243.0" layoutY="83.0" text="группа" />
