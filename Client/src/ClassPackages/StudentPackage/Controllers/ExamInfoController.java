@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -21,6 +22,9 @@ import java.util.ResourceBundle;
 public class ExamInfoController implements Initializable, StoreIdInterface {
 
     public Button backButton;
+    public TableColumn subject;
+    public TableColumn date;
+    public TableColumn mark;
     int stored_id;
     Handler handler = Client.get_handler();
 
@@ -33,6 +37,10 @@ public class ExamInfoController implements Initializable, StoreIdInterface {
         Controller.CurrentStage = screen.get_new_stage();
     }
 
+    public void fill_table() throws IOException {
+        handler.write("loadExamInfo");
+    }
+
     @Override
     public int get_stored_id() {
         return this.stored_id;
@@ -43,9 +51,9 @@ public class ExamInfoController implements Initializable, StoreIdInterface {
         this.stored_id = new_id;
     }
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            handler.write("loadExamInfo");
             set_stored_id((Integer)handler.read());
             System.out.println(get_stored_id());
         } catch (ClassNotFoundException | IOException e) {
