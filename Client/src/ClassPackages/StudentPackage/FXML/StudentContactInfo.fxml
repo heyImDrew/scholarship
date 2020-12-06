@@ -30,7 +30,7 @@
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Text fx:id="deanery" layoutX="139.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="84.22900390625">
+      <Text fx:id="deanery" layoutX="139.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="150.22900390625">
          <font>
             <Font size="19.0" />
          </font></Text>
@@ -44,5 +44,6 @@
          </font></Text>
       <ChoiceBox fx:id="deaneryBox" layoutX="139.0" layoutY="99.0" prefWidth="150.0" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onAction="#backButton" prefHeight="27.0" prefWidth="76.0" text="Назад" />
+      <Button fx:id="goButton" layoutX="300.0"  onAction="#goButton" layoutY="99.0" mnemonicParsing="false" text="Показать" />
    </children>
 </AnchorPane>

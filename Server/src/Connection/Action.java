@@ -163,6 +163,84 @@ public class Action {
                 handler.write(r);
                 break;
             }
+            case "loadScholarshipInfo": {
+                Integer student_id = (Integer) handler.read();
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT Scholarship_idScholarship FROM scholarship.student WHERE idStudent = ?";
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, student_id);
+                ResultSet res = preparedStmt.executeQuery();
+                res.next();
+
+                int scholarship_id = res.getInt("Scholarship_idScholarship");
+
+                String query1 = "SELECT * FROM scholarship.scholarship WHERE idScholarship = ?;";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
+                preparedStmt1.setInt(1, scholarship_id);
+                ResultSet res1 = preparedStmt1.executeQuery();
+                while (res1.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(res1.getString("type"));
+                    r.add(res1.getString("amount"));
+                    System.out.println(r.get(0));
+                    System.out.println(r.get(1));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+            case "loadShowStudentInfo": {
+                Integer student_id = (Integer) handler.read();
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT name, lastName, patronymic, faculty, session, group, recordBook FROM scholarship.student WHERE idStudent = ?";
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, student_id);
+                ResultSet res = preparedStmt.executeQuery();
+                res.next();
+
+                int faculty_id = res.getInt("faculty");
+
+                String query1 = "SELECT * FROM scholarship.faculty WHERE idFaculty = ?";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
+                preparedStmt1.setInt(1, faculty_id);
+                ResultSet res1 = preparedStmt1.executeQuery();
+                res1.next();
+
+                int session_id = res.getInt("session");
+
+                String query2 = "SELECT * FROM scholarship.session WHERE idSession = ?";
+                PreparedStatement preparedStmt2 = connection.prepareStatement(query2);
+                preparedStmt1.setInt(1, session_id);
+                ResultSet res2 = preparedStmt2.executeQuery();
+                while (res2.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(res.getString("lastName"));
+                    r.add(res.getString("name"));
+                    r.add(res.getString("patronymic"));
+                    r.add(res.getString("group"));
+                    r.add(res.getString("recordBook"));
+                    r.add(res1.getString("name"));
+                    r.add(res2.getString("avgMark"));
+                    System.out.println(r.get(0));
+                    System.out.println(r.get(1));
+                    System.out.println(r.get(2));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
         }
     }
 }

@@ -25,7 +25,7 @@
          </font>
       </Label>
       <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" onAction="#backButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="Назад" />
-      <Text fx:id="typeText" layoutX="270.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="50.21630859375" />
-      <Text fx:id="amountText" layoutX="314.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="50.21630859375" />
+      <Text fx:id="typeText" layoutX="270.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="80.21630859375" />
+      <Text fx:id="amountText" layoutX="314.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.21630859375" />
    </children>
 </AnchorPane>
