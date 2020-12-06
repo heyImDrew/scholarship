@@ -6,6 +6,7 @@ import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.stream.StreamSupport;
 
 public class Action {
     public void execute(Handler handler, String action) throws IOException, ClassNotFoundException, SQLException {
@@ -196,45 +197,36 @@ public class Action {
                 break;
             }
             case "loadShowStudentInfo": {
-                Integer student_id = (Integer) handler.read();
+                // Принимаем логин декана для недопущения ошибки
+                Integer dean_id = (Integer) handler.read();
+                System.out.println(dean_id);
 
+                // Выбираем всех студентов
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT name, lastName, patronymic, faculty, session, group, recordBook FROM scholarship.student WHERE idStudent = ?";
-                PreparedStatement preparedStmt = connection.prepareStatement(query);
-                preparedStmt.setInt(1, student_id);
-                ResultSet res = preparedStmt.executeQuery();
-                res.next();
 
-                int faculty_id = res.getInt("faculty");
+                // Добавляем inner join session и faculty чтобы мы сразу получали avgMark и faculty.name (не нужно писать отдельные запрос)
+                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
 
-                String query1 = "SELECT * FROM scholarship.faculty WHERE idFaculty = ?";
-                PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
-                preparedStmt1.setInt(1, faculty_id);
-                ResultSet res1 = preparedStmt1.executeQuery();
-                res1.next();
-
-                int session_id = res.getInt("session");
-
-                String query2 = "SELECT * FROM scholarship.session WHERE idSession = ?";
-                PreparedStatement preparedStmt2 = connection.prepareStatement(query2);
-                preparedStmt1.setInt(1, session_id);
-                ResultSet res2 = preparedStmt2.executeQuery();
-                while (res2.next()) {
+                // Прогоняем всех студентов
+                while(students.next()) {
+                    System.out.println("next");
                     ArrayList r = new ArrayList();
-                    r.add(res.getString("lastName"));
-                    r.add(res.getString("name"));
-                    r.add(res.getString("patronymic"));
-                    r.add(res.getString("group"));
-                    r.add(res.getString("recordBook"));
-                    r.add(res1.getString("name"));
-                    r.add(res2.getString("avgMark"));
-                    System.out.println(r.get(0));
-                    System.out.println(r.get(1));
-                    System.out.println(r.get(2));
+                    r.add(students.getString("name"));
+                    r.add(students.getString("lastName"));
+                    r.add(students.getString("patronymic"));
+                    r.add(students.getString("group"));
+                    r.add(students.getString("recordBook"));
+                    r.add(students.getString("facname"));
+                    r.add(students.getString("avg"));
                     handler.write(r);
                     r.clear();
                 }
+
+                // Посылаем сообщение о конце считывания
                 ArrayList r = new ArrayList();
                 r.clear();
                 r.add("stop");

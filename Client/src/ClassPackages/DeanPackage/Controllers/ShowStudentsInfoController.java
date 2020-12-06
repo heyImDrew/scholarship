@@ -41,10 +41,6 @@ public class ShowStudentsInfoController implements Initializable, StoreIdInterfa
         Controller.CurrentStage = screen.get_new_stage();
     }
 
-    public void fill_table() throws IOException {
-        handler.write("loadExamInfo");
-    }
-
     @Override
     public int get_stored_id() {
         return this.stored_id;
@@ -67,8 +63,8 @@ public class ShowStudentsInfoController implements Initializable, StoreIdInterfa
                 if (data.get(0).equals("stop")) {
                     return;
                 }
-                lastName.getItems().add(data.get(0));
-                name.getItems().add(data.get(1));
+                name.getItems().add(data.get(0));
+                lastName.getItems().add(data.get(1));
                 patronymic.getItems().add(data.get(2));
                 group.getItems().add(data.get(3));
                 recordBook.getItems().add(data.get(4));
