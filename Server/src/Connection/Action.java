@@ -233,6 +233,98 @@ public class Action {
                 handler.write(r);
                 break;
             }
+            case "loadRecordBookInfo": {
+                // Принимаем логин декана для недопущения ошибки
+                Integer dean_id = (Integer) handler.read();
+                System.out.println(dean_id);
+
+                // Выбираем всех студентов
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                // Добавляем inner join session и faculty чтобы мы сразу получали avgMark и faculty.name (не нужно писать отдельные запрос)
+                String query = "SELECT student.* FROM scholarship.student;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+
+                // Прогоняем всех студентов
+                while(students.next()) {
+                    System.out.println("next");
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("recordBook"));
+                    handler.write(r);
+                    r.clear();
+                }
+
+                // Посылаем сообщение о конце считывания
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+
+            case "loadDeanScholarshipInfo": {
+                Integer dean_id = (Integer) handler.read();
+                String recordBookst = (String) handler.read();
+                System.out.println("dean");
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE recordBook = ?;";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query);
+                preparedStmt1.setString(1, recordBookst);
+                ResultSet res1 = preparedStmt1.executeQuery();
+                System.out.println("dfadsf");
+
+                while(res1.next()) {
+                    System.out.println("next");
+                    ArrayList r = new ArrayList();
+                    r.add(res1.getString("amount"));
+                    r.add(res1.getString("type"));
+                    System.out.println(res1.getString("amount"));
+                    System.out.println(res1.getString("type"));
+                    handler.write(r);
+                    r.clear();
+                }
+
+                // Посылаем сообщение о конце считывания
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+            case "loadTransactionsHistory": {
+                Integer accountant_id = (Integer) handler.read();
+                System.out.println(accountant_id);
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+
+                // Прогоняем всех студентов
+                while(students.next()) {
+                    System.out.println("next");
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("lastName") + "   " + students.getString("name") + "   " + students.getString("patronymic") + "   " + students.getString("bankCard") + "   " + students.getString("date") + "   " + students.getString("amount"));
+                    handler.write(r);
+                    r.clear();
+                }
+
+                // Посылаем сообщение о конце считывания
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
         }
     }
 }

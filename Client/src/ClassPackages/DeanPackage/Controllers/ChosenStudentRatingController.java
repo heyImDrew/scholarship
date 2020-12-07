@@ -47,6 +47,8 @@ public class ChosenStudentRatingController implements Initializable, StoreIdInte
         try {
             set_stored_id((Integer)handler.read());
             System.out.println(get_stored_id());
+            System.out.println((String) handler.read());
+
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }

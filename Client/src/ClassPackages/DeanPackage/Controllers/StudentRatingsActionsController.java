@@ -5,12 +5,15 @@ import ClassPackages.MainPackage.Controllers.Controller;
 import ClassPackages.MainPackage.Models.Client;
 import ClassPackages.MainPackage.Models.Handler;
 import ClassPackages.MainPackage.Models.ScreenHandler;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,14 +23,62 @@ import java.util.ResourceBundle;
 public class StudentRatingsActionsController implements Initializable, StoreIdInterface {
 
     public Button backButton;
+    public ChoiceBox choiceBox;
     int stored_id;
     Handler handler = Client.get_handler();
+    ObservableList list = FXCollections.observableArrayList();
 
     public void backButton(ActionEvent actionEvent) throws IOException {
+        handler.write("returnId");
+        handler.write(get_stored_id());
         Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
         Controller.CurrentStage.close();
         ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryPerfomanceActions.fxml", "BSUIR TASK 2020");
         Controller.CurrentStage = screen.get_new_stage();
+    }
+
+    private void loadData() {
+        list.removeAll(list);
+        String a = "По возрастанию рейтинга";
+        String b = "По убыванию рейтинга";
+        String c = "По возрастанию зачетки";
+        String d = "По убыванию зачетки";
+        list.addAll(a,b,c,d);
+        choiceBox.getItems().addAll(list);
+    }
+
+    public void goButton(ActionEvent actionEvent) throws IOException {
+        String actions = (String) choiceBox.getValue();
+        if (actions == "По возрастанию рейтинга") {
+            handler.write("returnId");
+            handler.write(get_stored_id());
+
+            Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
+            Controller.CurrentStage.close();
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
+        } else if (actions == "По убыванию рейтинга") {
+            handler.write("returnId");
+            handler.write(get_stored_id());
+            Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
+            Controller.CurrentStage.close();
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
+        } else if (actions == "Информация об экзаменах"){
+            handler.write("returnId");
+            handler.write(get_stored_id());
+            Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
+            Controller.CurrentStage.close();
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
+        } else if (actions == "Информация о стипендиях"){
+            handler.write("returnId");
+            handler.write(get_stored_id());
+            Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
+            Controller.CurrentStage.close();
+            ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
+            Controller.CurrentStage = screen.get_new_stage();
+        }
     }
 
     @Override
@@ -48,5 +99,6 @@ public class StudentRatingsActionsController implements Initializable, StoreIdIn
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+        loadData();
     }
 }
