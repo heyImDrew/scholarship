@@ -18,24 +18,33 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="50.0" layoutY="155.0" prefHeight="24.0" prefWidth="148.0" text="Номер карты:">
+      <Label layoutX="169.0" layoutY="163.0" prefHeight="24.0" prefWidth="148.0" text="Номер карты:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="230.0" prefHeight="24.0" prefWidth="237.0" text="Последнее зачисление:">
+      <Label layoutX="86.0" layoutY="240.0" prefHeight="28.0" prefWidth="220.0" text="Последнее зачисление:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
       <Button fx:id="backButton" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onAction="#backButton" prefHeight="39.0" prefWidth="72.0" text="Назад" />
-      <Label layoutX="50.0" layoutY="192.0" prefHeight="24.0" prefWidth="124.0" text="Владелец:">
+      <Label layoutX="202.0" layoutY="202.0" prefHeight="28.0" prefWidth="93.0" text="Владелец:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Text fx:id="cardText" layoutX="310.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="283.21630859375" />
-      <Text fx:id="ownerText" layoutX="310.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="337.21630859375" />
-      <Text fx:id="lastdateText" layoutX="310.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="62.21630859375" />
+      <Text fx:id="cardText" layoutX="310.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="283.21630859375">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <Text fx:id="ownerText" layoutX="310.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="337.21630859375">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <Text fx:id="lastdateText" layoutX="310.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="133.21630859375">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
    </children>
 </AnchorPane>
