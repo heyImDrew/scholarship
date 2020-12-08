@@ -70,11 +70,7 @@ public class ScholarshipInfoController implements Initializable, StoreIdInterfac
     public void showButton(ActionEvent actionEvent) {
         try {
             handler.write("loadDeanScholarshipInfo");
-            set_stored_id((Integer)handler.read());
-            System.out.println(get_stored_id());
-            handler.write(get_stored_id());
             handler.write(recordBookBox.getValue());
-
             while (true) {
                 ArrayList data = (ArrayList) handler.read();
                 if (data.get(0).equals("stop")) {
@@ -83,8 +79,7 @@ public class ScholarshipInfoController implements Initializable, StoreIdInterfac
                 amoungText.setText((String) data.get(0));
                 scholarText.setText((String) data.get(1));
             }
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
         }
+        catch (IOException | ClassNotFoundException e) {}
     }
 }

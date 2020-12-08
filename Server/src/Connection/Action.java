@@ -213,7 +213,6 @@ public class Action {
 
                 // Прогоняем всех студентов
                 while(students.next()) {
-                    System.out.println("next");
                     ArrayList r = new ArrayList();
                     r.add(students.getString("name"));
                     r.add(students.getString("lastName"));
@@ -250,7 +249,6 @@ public class Action {
 
                 // Прогоняем всех студентов
                 while(students.next()) {
-                    System.out.println("next");
                     ArrayList r = new ArrayList();
                     r.add(students.getString("recordBook"));
                     handler.write(r);
@@ -266,26 +264,22 @@ public class Action {
             }
 
             case "loadDeanScholarshipInfo": {
-                Integer dean_id = (Integer) handler.read();
-                String recordBookst = (String) handler.read();
-                System.out.println("dean");
+                String value = (String) handler.read();
+                System.out.println(value);
 
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
                 String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE recordBook = ?;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
-                preparedStmt1.setString(1, recordBookst);
+                preparedStmt1.setString(1, value);
                 ResultSet res1 = preparedStmt1.executeQuery();
-                System.out.println("dfadsf");
+                System.out.println(res1);
 
                 while(res1.next()) {
-                    System.out.println("next");
                     ArrayList r = new ArrayList();
                     r.add(res1.getString("amount"));
                     r.add(res1.getString("type"));
-                    System.out.println(res1.getString("amount"));
-                    System.out.println(res1.getString("type"));
                     handler.write(r);
                     r.clear();
                 }
@@ -295,8 +289,12 @@ public class Action {
                 r.clear();
                 r.add("stop");
                 handler.write(r);
+
+                System.out.println("Works on server!");
+
                 break;
             }
+
             case "loadTransactionsHistory": {
                 Integer accountant_id = (Integer) handler.read();
                 System.out.println(accountant_id);
@@ -311,7 +309,6 @@ public class Action {
 
                 // Прогоняем всех студентов
                 while(students.next()) {
-                    System.out.println("next");
                     ArrayList r = new ArrayList();
                     r.add(students.getString("lastName") + "   " + students.getString("name") + "   " + students.getString("patronymic") + "   " + students.getString("bankCard") + "   " + students.getString("date") + "   " + students.getString("amount"));
                     handler.write(r);
