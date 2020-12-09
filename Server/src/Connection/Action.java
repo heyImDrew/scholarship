@@ -95,6 +95,14 @@ public class Action {
                 break;
             }
 
+            case "returnIdStr": {
+                Integer id = (Integer) handler.read();
+                handler.write(id);
+                String str = (String) handler.read();
+                handler.write(str);
+                break;
+            }
+
             case "loadExamInfo": {
                 Integer student_id = (Integer) handler.read();
 
@@ -311,6 +319,51 @@ public class Action {
                 while(students.next()) {
                     ArrayList r = new ArrayList();
                     r.add(students.getString("lastName") + "   " + students.getString("name") + "   " + students.getString("patronymic") + "   " + students.getString("bankCard") + "   " + students.getString("date") + "   " + students.getString("amount"));
+                    handler.write(r);
+                    r.clear();
+                }
+
+                // Посылаем сообщение о конце считывания
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+
+            case "chosenStudentRating": {
+                Integer id = (Integer) handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String query = null;
+                String inc = (String) handler.read();
+                System.out.println(inc);
+                if (inc.equals("По возрастанию рейтинга")) {
+                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY avgMark ASC;";
+                }
+                else if (inc.equals("По убыванию рейтинга")) {
+                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY avgMark DESC;";
+                }
+                else if (inc.equals("По возрастанию зачетки")) {
+                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY recordBook ASC;";
+                }
+                else if (inc.equals("По убыванию зачетки")) {
+                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY recordBook DESC;";
+                }
+                System.out.println(query);
+                Statement statement = connection.createStatement();
+                ResultSet res = statement.executeQuery(query);
+                System.out.println(res);
+
+
+                while(res.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(res.getString("lastName"));
+                    r.add(res.getString("name"));
+                    r.add(res.getString("group"));
+                    r.add(res.getString("recordBook"));
+                    r.add(res.getString("avgMark"));
                     handler.write(r);
                     r.clear();
                 }

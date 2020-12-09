@@ -49,31 +49,35 @@ public class StudentRatingsActionsController implements Initializable, StoreIdIn
 
     public void goButton(ActionEvent actionEvent) throws IOException {
         String actions = (String) choiceBox.getValue();
-        if (actions == "По возрастанию рейтинга") {
-            handler.write("returnId");
-            handler.write(get_stored_id());
 
+        if (actions == "По возрастанию рейтинга") {
+            handler.write("returnIdStr");
+            handler.write(get_stored_id());
+            handler.write(actions);
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
             Controller.CurrentStage = screen.get_new_stage();
         } else if (actions == "По убыванию рейтинга") {
-            handler.write("returnId");
+            handler.write("returnIdStr");
             handler.write(get_stored_id());
+            handler.write(actions);
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
             Controller.CurrentStage = screen.get_new_stage();
-        } else if (actions == "Информация об экзаменах"){
-            handler.write("returnId");
+        } else if (actions == "По возрастанию зачетки"){
+            handler.write("returnIdStr");
             handler.write(get_stored_id());
+            handler.write(actions);
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
             Controller.CurrentStage = screen.get_new_stage();
-        } else if (actions == "Информация о стипендиях"){
-            handler.write("returnId");
+        } else if (actions == "По убыванию зачетки"){
+            handler.write("returnIdStr");
             handler.write(get_stored_id());
+            handler.write(actions);
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
             ScreenHandler screen = new ScreenHandler("../../DeanPackage/FXML/DeaneryChosenStudentRating.fxml", "BSUIR TASK 2020");
@@ -94,7 +98,7 @@ public class StudentRatingsActionsController implements Initializable, StoreIdIn
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            set_stored_id((Integer)handler.read());
+            set_stored_id((Integer) handler.read());
             System.out.println(get_stored_id());
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
