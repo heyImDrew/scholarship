@@ -408,7 +408,6 @@ public class Action {
                 String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
-                System.out.println(students);
                 while (students.next()) {
                     ArrayList r = new ArrayList();
                     r.add(students.getString("name"));
@@ -469,6 +468,7 @@ public class Action {
                 preparedStmt1.setInt(2, stud_id);
                 preparedStmt1.execute();
                 System.out.println("DONE");
+                break;
             }
 
             case "accountantChangeScolarship": {
@@ -490,6 +490,7 @@ public class Action {
                 preparedStmt1.setInt(2, stud_id);
                 preparedStmt1.execute();
                 System.out.println("DONE");
+                break;
             }
 
             case "loadGraph": {

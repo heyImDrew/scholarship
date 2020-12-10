@@ -65,7 +65,6 @@ public class ScholarshipTransController implements Initializable, StoreIdInterfa
                 if (data.get(0).equals("stop")) {
                     return;
                 }
-                System.out.println();
                 name.getItems().add(data.get(0));
                 lastName.getItems().add(data.get(1));
                 patronymic.getItems().add(data.get(2));
@@ -87,7 +86,7 @@ public class ScholarshipTransController implements Initializable, StoreIdInterfa
             handler.write(get_stored_id());
             Controller.CurrentStage = (Stage) backButton.getScene().getWindow();
             Controller.CurrentStage.close();
-            ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantActions.fxml", "BSUIR TASK 2020");
+            ScreenHandler screen = new ScreenHandler("../../AccountantPackage/FXML/AccountantScholarshipTransaction.fxml", "BSUIR TASK 2020");
             Controller.CurrentStage = screen.get_new_stage();
         }
     }
