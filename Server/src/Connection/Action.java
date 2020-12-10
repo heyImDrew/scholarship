@@ -471,6 +471,41 @@ public class Action {
                 break;
             }
 
+            case "deanChangeStudentScholarship": {
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String recordBookId = (String) handler.read();
+                String fieldName = (String) handler.read();
+                //String newValue = (String) handler.read();
+                System.out.println(recordBookId);
+                String query0 = "SELECT * FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE student.recordBook = ?;";
+                PreparedStatement preparedStmt = connection.prepareStatement(query0);
+                preparedStmt.setString(1, recordBookId);
+                System.out.println("2");
+                ResultSet res = preparedStmt.executeQuery();
+                System.out.println("3");
+                res.next();
+                System.out.println("4");
+                Integer stud_id = res.getInt("idScholarship");
+                System.out.println("5");
+                String query = null;
+
+                if (fieldName.equals("Обычная")) {
+                    query = "UPDATE scholarship.scholarship SET scholarship.type= ? WHERE idScholarship= ? ;";
+                }
+                else if (fieldName.equals("Повышенная")) {
+                    query = "UPDATE scholarship.scholarship SET scholarship.type= ? WHERE idScholarship= ? ;";
+                }
+
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query);
+                preparedStmt1.setString(1, fieldName);
+                preparedStmt1.setInt(2, stud_id);
+                preparedStmt1.execute();
+                System.out.println("DONE");
+                break;
+            }
+
             case "accountantChangeScolarship": {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
@@ -490,6 +525,31 @@ public class Action {
                 preparedStmt1.setInt(2, stud_id);
                 preparedStmt1.execute();
                 System.out.println("DONE");
+                break;
+            }
+
+            case "DeaneryAddScholarship": {
+                Integer dean_id = (Integer) handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+                while (students.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("name"));
+                    r.add(students.getString("lastName"));
+                    r.add(students.getString("group"));
+                    r.add(students.getString("recordBook"));
+                    r.add(students.getString("type"));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
                 break;
             }
 

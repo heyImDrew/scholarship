@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#backButton" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="66.0" text="Далее" />
       <Label layoutX="32.0" layoutY="247.0" prefHeight="17.0" prefWidth="178.0" text="Выберите вид стипендии:" />
       <Label layoutX="29.0" layoutY="295.0" prefHeight="17.0" prefWidth="258.0" text="Выберите номер зачетки назначения:" />
       <ChoiceBox fx:id="scholarBox" layoutX="247.0" layoutY="242.0" prefWidth="150.0" />
@@ -26,13 +26,11 @@
       <ListView fx:id="name" layoutX="105.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
       <ListView fx:id="group" layoutX="212.0" layoutY="100.0" prefHeight="131.0" prefWidth="92.0" />
       <ListView fx:id="recordBook" layoutX="303.0" layoutY="100.0" prefHeight="131.0" prefWidth="107.0" />
-      <ListView fx:id="faculty" layoutX="410.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
-      <ListView fx:id="avgMark" layoutX="493.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
+      <ListView fx:id="scholarship" layoutX="410.0" layoutY="100.0" prefHeight="131.0" prefWidth="81.0" />
       <Label layoutX="32.0" layoutY="83.0" text="фамилия" />
       <Label layoutX="143.0" layoutY="83.0" text="имя" />
       <Label layoutX="243.0" layoutY="83.0" text="группа" />
       <Label layoutX="342.0" layoutY="83.0" text="зачетка" />
-      <Label layoutX="435.0" layoutY="83.0" text="факультет" />
-      <Label layoutX="519.0" layoutY="83.0" text="рейтинг" />
+      <Label layoutX="419.0" layoutY="83.0" text="стипендия" />
    </children>
 </AnchorPane>
