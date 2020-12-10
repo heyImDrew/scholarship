@@ -375,6 +375,76 @@ public class Action {
                 handler.write(r);
                 break;
             }
+
+            case "loadDeanEditStudent": {
+                Integer dean_id = (Integer) handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+                while (students.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("name"));
+                    r.add(students.getString("lastName"));
+                    r.add(students.getString("patronymic"));
+                    r.add(students.getString("group"));
+                    r.add(students.getString("recordBook"));
+                    r.add(students.getString("facname"));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+
+            case "deanChangeStudent": {
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String recordBookId = (String) handler.read();
+                String fieldName = (String) handler.read();
+                String newValue = (String) handler.read();
+                System.out.println(recordBookId);
+                String query0 = "SELECT * FROM scholarship.student WHERE student.recordBook = ?;";
+                PreparedStatement preparedStmt = connection.prepareStatement(query0);
+                preparedStmt.setString(1, recordBookId);
+                System.out.println("2");
+                ResultSet res = preparedStmt.executeQuery();
+                System.out.println("3");
+                res.next();
+                System.out.println("4");
+                Integer stud_id = res.getInt("idStudent");
+                System.out.println("5");
+                String query = null;
+
+                if (fieldName.equals("Фамилия")) {
+                    query = "UPDATE scholarship.student SET student.lastName = ? WHERE idStudent = ?;";
+                }
+                else if (fieldName.equals("Имя")) {
+                    query = "UPDATE scholarship.student SET student.name=? WHERE idStudent=?;";
+                }
+                else if (fieldName.equals("Отчество")) {
+                    query = "UPDATE scholarship.student SET student.patronymic=? WHERE idStudent=?;";
+                }
+                else if (fieldName.equals("Группа")) {
+                    query = "UPDATE scholarship.student SET student.group=? WHERE idStudent=?;";
+                    System.out.println("ddd");
+                }
+                else if (fieldName.equals("Зачетка")) {
+                    query = "UPDATE scholarship.student SET student.recordBook=? WHERE idStudent=?;";
+                }
+
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query);
+                preparedStmt1.setString(1, newValue);
+                preparedStmt1.setInt(2, stud_id);
+                preparedStmt1.execute();
+                System.out.println("DONE");
+            }
         }
     }
 }
