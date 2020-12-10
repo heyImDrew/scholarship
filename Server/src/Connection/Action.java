@@ -214,7 +214,7 @@ public class Action {
                 Connection connection = connectionClass.getConnection();
 
                 // Добавляем inner join session и faculty чтобы мы сразу получали avgMark и faculty.name (не нужно писать отдельные запрос)
-                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=student.session INNER JOIN scholarship.Faculty on idFaculty=student.faculty;";
+                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=Student.session INNER JOIN scholarship.Faculty on idFaculty=Student.faculty;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -378,7 +378,7 @@ public class Action {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=student.Session INNER JOIN scholarship.Faculty on idFaculty=student.Faculty;";
+                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=Student.session INNER JOIN scholarship.Faculty on idFaculty=Student.faculty;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
