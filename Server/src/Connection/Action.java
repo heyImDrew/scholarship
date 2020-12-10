@@ -108,7 +108,7 @@ public class Action {
 
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT session FROM scholarship.student WHERE idStudent = ?";
+                String query = "SELECT session FROM scholarship.Student WHERE idStudent = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setInt(1, student_id);
                 ResultSet res = preparedStmt.executeQuery();
@@ -116,7 +116,7 @@ public class Action {
 
                 int session_num = res.getInt("session");
 
-                String query1 = "SELECT * FROM scholarship.exam WHERE Session = ?";
+                String query1 = "SELECT * FROM scholarship.Exam WHERE Session = ?";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
                 preparedStmt1.setInt(1, session_num);
                 ResultSet res1 = preparedStmt1.executeQuery();
@@ -177,7 +177,7 @@ public class Action {
 
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT Scholarship_idScholarship FROM scholarship.student WHERE idStudent = ?";
+                String query = "SELECT Scholarship_idScholarship FROM scholarship.Student WHERE idStudent = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setInt(1, student_id);
                 ResultSet res = preparedStmt.executeQuery();
@@ -185,7 +185,7 @@ public class Action {
 
                 int scholarship_id = res.getInt("Scholarship_idScholarship");
 
-                String query1 = "SELECT * FROM scholarship.scholarship WHERE idScholarship = ?;";
+                String query1 = "SELECT * FROM scholarship.Scholarship WHERE idScholarship = ?;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
                 preparedStmt1.setInt(1, scholarship_id);
                 ResultSet res1 = preparedStmt1.executeQuery();
@@ -214,7 +214,7 @@ public class Action {
                 Connection connection = connectionClass.getConnection();
 
                 // Добавляем inner join session и faculty чтобы мы сразу получали avgMark и faculty.name (не нужно писать отдельные запрос)
-                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=student.session INNER JOIN scholarship.Faculty on idFaculty=student.faculty;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -250,7 +250,7 @@ public class Action {
                 Connection connection = connectionClass.getConnection();
 
                 // Добавляем inner join session и faculty чтобы мы сразу получали avgMark и faculty.name (не нужно писать отдельные запрос)
-                String query = "SELECT student.* FROM scholarship.student;";
+                String query = "SELECT Student.* FROM scholarship.Student;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -278,7 +278,7 @@ public class Action {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
-                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE recordBook = ?;";
+                String query = "SELECT Student.*, Scholarship.* FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship WHERE recordBook = ?;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
                 preparedStmt1.setString(1, value);
                 ResultSet res1 = preparedStmt1.executeQuery();
@@ -298,8 +298,6 @@ public class Action {
                 r.add("stop");
                 handler.write(r);
 
-                System.out.println("Works on server!");
-
                 break;
             }
 
@@ -310,7 +308,7 @@ public class Action {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
-                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                String query = "SELECT Student.*, Scholarship.* FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -340,16 +338,16 @@ public class Action {
                 String inc = (String) handler.read();
                 System.out.println(inc);
                 if (inc.equals("По возрастанию рейтинга")) {
-                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY avgMark ASC;";
+                    query = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Session ON Student.session = Session.idSession ORDER BY avgMark ASC;";
                 }
                 else if (inc.equals("По убыванию рейтинга")) {
-                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY avgMark DESC;";
+                    query = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Session ON Student.session = Session.idSession ORDER BY avgMark DESC;";
                 }
                 else if (inc.equals("По возрастанию зачетки")) {
-                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY recordBook ASC;";
+                    query = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Session ON Student.session = Session.idSession ORDER BY recordBook ASC;";
                 }
                 else if (inc.equals("По убыванию зачетки")) {
-                    query = "SELECT * FROM scholarship.student INNER JOIN scholarship.session ON student.session = session.idSession ORDER BY recordBook DESC;";
+                    query = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Session ON Student.session = Session.idSession ORDER BY recordBook DESC;";
                 }
                 System.out.println(query);
                 Statement statement = connection.createStatement();
@@ -380,7 +378,7 @@ public class Action {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=student.Session INNER JOIN scholarship.Faculty on idFaculty=student.Faculty;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -406,7 +404,7 @@ public class Action {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                String query = "SELECT Student.*, Session.avgMark AS avg, Faculty.name AS facname FROM scholarship.Student INNER JOIN scholarship.Session on Idsession=Student.session INNER JOIN scholarship.Faculty on idFaculty=Student.faculty;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -432,7 +430,7 @@ public class Action {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                String query = "SELECT Student.*, Scholarship.* FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 while (students.next()) {
@@ -461,7 +459,7 @@ public class Action {
                 String fieldName = (String) handler.read();
                 String newValue = (String) handler.read();
                 System.out.println(recordBookId);
-                String query0 = "SELECT * FROM scholarship.student WHERE student.recordBook = ?;";
+                String query0 = "SELECT * FROM scholarship.Student WHERE Student.recordBook = ?;";
                 PreparedStatement preparedStmt = connection.prepareStatement(query0);
                 preparedStmt.setString(1, recordBookId);
                 System.out.println("2");
@@ -474,20 +472,20 @@ public class Action {
                 String query = null;
 
                 if (fieldName.equals("Фамилия")) {
-                    query = "UPDATE scholarship.student SET student.lastName = ? WHERE idStudent = ?;";
+                    query = "UPDATE scholarship.Student SET Student.lastName = ? WHERE idStudent = ?;";
                 }
                 else if (fieldName.equals("Имя")) {
-                    query = "UPDATE scholarship.student SET student.name=? WHERE idStudent=?;";
+                    query = "UPDATE scholarship.Student SET Student.name=? WHERE idStudent=?;";
                 }
                 else if (fieldName.equals("Отчество")) {
-                    query = "UPDATE scholarship.student SET student.patronymic=? WHERE idStudent=?;";
+                    query = "UPDATE scholarship.Student SET Student.patronymic=? WHERE idStudent=?;";
                 }
                 else if (fieldName.equals("Группа")) {
-                    query = "UPDATE scholarship.student SET student.group=? WHERE idStudent=?;";
+                    query = "UPDATE scholarship.Student SET Student.group=? WHERE idStudent=?;";
                     System.out.println("ddd");
                 }
                 else if (fieldName.equals("Зачетка")) {
-                    query = "UPDATE scholarship.student SET student.recordBook=? WHERE idStudent=?;";
+                    query = "UPDATE scholarship.Student SET Student.recordBook=? WHERE idStudent=?;";
                 }
 
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
@@ -504,7 +502,7 @@ public class Action {
 
                 String recordBookId = (String) handler.read();
                 System.out.println(recordBookId);
-                String query0 = "SELECT * FROM scholarship.student WHERE student.recordBook = ?;";
+                String query0 = "SELECT * FROM scholarship.Student WHERE Student.recordBook = ?;";
                 PreparedStatement preparedStmt = connection.prepareStatement(query0);
                 preparedStmt.setString(1, recordBookId);
                 System.out.println("2");
@@ -516,7 +514,7 @@ public class Action {
                 System.out.println("5");
                 String query = null;
 
-                query = "DELETE FROM scholarship.student WHERE idStudent=?;";
+                query = "DELETE FROM scholarship.Student WHERE idStudent=?;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
                 preparedStmt1.setInt(1, stud_id);
                 preparedStmt1.execute();
@@ -532,7 +530,7 @@ public class Action {
                 String fieldName = (String) handler.read();
                 String newValue = (String) handler.read();
                 System.out.println(recordBookId);
-                String query0 = "SELECT * FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE student.recordBook = ?;";
+                String query0 = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship WHERE Student.recordBook = ?;";
                 PreparedStatement preparedStmt = connection.prepareStatement(query0);
                 preparedStmt.setString(1, recordBookId);
                 System.out.println("2");
@@ -545,10 +543,10 @@ public class Action {
                 String query = null;
 
                 if (fieldName.equals("Обычная")) {
-                    query = "UPDATE scholarship.scholarship SET scholarship.type= ?, scholarship.amount= ? WHERE idScholarship= ? ;";
+                    query = "UPDATE scholarship.Scholarship SET Scholarship.type= ?, Scholarship.amount= ? WHERE idScholarship= ? ;";
                 }
                 else if (fieldName.equals("Повышенная")) {
-                    query = "UPDATE scholarship.scholarship SET scholarship.type= ?, scholarship.amount= ?  WHERE idScholarship= ? ;";
+                    query = "UPDATE scholarship.Scholarship SET Scholarship.type= ?, Scholarship.amount= ?  WHERE idScholarship= ? ;";
                 }
 
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
@@ -566,13 +564,13 @@ public class Action {
 
                 String recordBookId = (String) handler.read();
                 String newValue = (String) handler.read();
-                String query0 = "SELECT * FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE student.recordBook = ?;";
+                String query0 = "SELECT * FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship WHERE Student.recordBook = ?;";
                 PreparedStatement preparedStmt = connection.prepareStatement(query0);
                 preparedStmt.setString(1, recordBookId);
                 ResultSet res = preparedStmt.executeQuery();
                 res.next();
                 Integer stud_id = res.getInt("idScholarship");
-                String query = "UPDATE scholarship.scholarship SET scholarship.date= ? WHERE idScholarship= ? ;";
+                String query = "UPDATE scholarship.Scholarship SET Scholarship.date= ? WHERE idScholarship= ? ;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
 
                 preparedStmt1.setString(1, newValue);
@@ -586,7 +584,7 @@ public class Action {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                String query = "SELECT Student.*, Scholarship.* FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
@@ -610,7 +608,7 @@ public class Action {
             case "loadGraph": {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT avgMark, COUNT(*) as count from scholarship.session group by avgMark;";
+                String query = "SELECT avgMark, COUNT(*) as count from scholarship.Session group by avgMark;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 while (students.next()) {
@@ -634,7 +632,7 @@ public class Action {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
-                String query = "SELECT student.*, scholarship.*, session.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship INNER JOIN scholarship.session on IdSession=student.session;";
+                String query = "SELECT Student.*, Scholarship.*, Session.* FROM scholarship.Student INNER JOIN scholarship.Scholarship on IdScholarship=Student.Scholarship_idScholarship INNER JOIN scholarship.Session on IdSession=Student.session;";
                 Statement statement = connection.createStatement();
                 ResultSet students = statement.executeQuery(query);
                 System.out.println(students);
