@@ -143,7 +143,7 @@ public class Action {
 
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
-                String query = "SELECT name, lastName, patronymic, Scholarship_idScholarship, bankCard FROM scholarship.student WHERE idStudent = ?";
+                String query = "SELECT name, lastName, patronymic, Scholarship_idScholarship, bankCard FROM scholarship.Student WHERE idStudent = ?";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setInt(1, student_id);
                 ResultSet res = preparedStmt.executeQuery();
@@ -151,7 +151,7 @@ public class Action {
 
                 int scholarship_id = res.getInt("Scholarship_idScholarship");
 
-                String query1 = "SELECT * FROM scholarship.scholarship WHERE idScholarship = ?;";
+                String query1 = "SELECT * FROM scholarship.Scholarship WHERE idScholarship = ?;";
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
                 preparedStmt1.setInt(1, scholarship_id);
                 ResultSet res1 = preparedStmt1.executeQuery();
