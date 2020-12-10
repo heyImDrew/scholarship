@@ -401,6 +401,31 @@ public class Action {
                 handler.write(r);
                 break;
             }
+            case "AccScholarshipInfo": {
+                Integer dean_id = (Integer) handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT student.*, scholarship.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+                while (students.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("name"));
+                    r.add(students.getString("lastName"));
+                    r.add(students.getString("patronymic"));
+                    r.add(students.getString("recordBook"));
+                    r.add(students.getString("date"));
+                    r.add(students.getString("recordBook"));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
 
             case "deanChangeStudent": {
                 ConnectionClass connectionClass = new ConnectionClass();
@@ -446,6 +471,27 @@ public class Action {
                 System.out.println("DONE");
             }
 
+            case "accountantChangeScolarship": {
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String recordBookId = (String) handler.read();
+                String newValue = (String) handler.read();
+                String query0 = "SELECT * FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE student.recordBook = ?;";
+                PreparedStatement preparedStmt = connection.prepareStatement(query0);
+                preparedStmt.setString(1, recordBookId);
+                ResultSet res = preparedStmt.executeQuery();
+                res.next();
+                Integer stud_id = res.getInt("idScholarship");
+                String query = "UPDATE scholarship.scholarship SET scholarship.date= ? WHERE idScholarship= ? ;";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query);
+
+                preparedStmt1.setString(1, newValue);
+                preparedStmt1.setInt(2, stud_id);
+                preparedStmt1.execute();
+                System.out.println("DONE");
+            }
+
             case "loadGraph": {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
@@ -460,6 +506,31 @@ public class Action {
                     handler.write(r);
                     r.clear();
                 }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+            case "loadReport": {
+                Integer accountant_id = (Integer) handler.read();
+                System.out.println(accountant_id);
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String query = "SELECT student.*, scholarship.*, session.* FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship INNER JOIN scholarship.session on IdSession=student.session;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+
+                while(students.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("lastName") + "    |ИМЯ|" + students.getString("name") + "    |ОТЧЕСТВО|" + students.getString("patronymic") + "    |КАРТА|" + students.getString("bankCard") + "    |ДАТА|" + students.getString("date") + "    |РАЗМЕР|" + students.getString("amount")+ "    |БАЛЛ|" + students.getString("avgMark"));
+                    handler.write(r);
+                    r.clear();
+                }
+
                 ArrayList r = new ArrayList();
                 r.clear();
                 r.add("stop");
