@@ -445,6 +445,27 @@ public class Action {
                 preparedStmt1.execute();
                 System.out.println("DONE");
             }
+
+            case "loadGraph": {
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT avgMark, COUNT(*) as count from scholarship.session group by avgMark;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                while (students.next()) {
+                    ArrayList r = new ArrayList();
+                    System.out.println(students.getString("avgMark") + " " + students.getInt("count"));
+                    r.add(students.getString("avgMark"));
+                    r.add(students.getInt("count"));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
         }
     }
 }

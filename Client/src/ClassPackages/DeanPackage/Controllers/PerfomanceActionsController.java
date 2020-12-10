@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PerfomanceActionsController implements Initializable, StoreIdInterface {
@@ -68,7 +69,8 @@ public class PerfomanceActionsController implements Initializable, StoreIdInterf
         Controller.CurrentStage = screen.get_new_stage();
     }
 
-    public void graphButton(ActionEvent actionEvent) throws IOException {
+    public void graphButton(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+
         handler.write("loadGraph");
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
@@ -81,21 +83,26 @@ public class PerfomanceActionsController implements Initializable, StoreIdInterf
         Label label = new Label();
         label.setText("Количество студентов с определенным средним баллом");
         label.setStyle("-fx-font-size: 20;");
-        ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-                        new PieChart.Data("9", 2),
-                        new PieChart.Data("8", 1),
-                        new PieChart.Data("5", 1),
-                        new PieChart.Data("6", 2));
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+//        = FXCollections.observableArrayList(
+//                        new PieChart.Data("9", 2),
+//                        new PieChart.Data("8", 1),
+//                        new PieChart.Data("5", 1),
+//                        new PieChart.Data("6", 2));
 
-        final PieChart chart = new PieChart(pieChartData);
-
-        VBox layout = new VBox(10);
-        layout.getChildren().addAll(label, chart, closeButton);
-        layout.setAlignment(Pos.CENTER);
-
-        Scene scene = new Scene(layout, 600, 500);
-        window.setScene(scene);
-        window.showAndWait();
+        while (true) {
+            ArrayList data = (ArrayList) handler.read();
+            if (data.get(0).equals("stop")) {
+                final PieChart chart = new PieChart(pieChartData);
+                VBox layout = new VBox(10);
+                layout.getChildren().addAll(label, chart, closeButton);
+                layout.setAlignment(Pos.CENTER);
+                Scene scene = new Scene(layout, 600, 500);
+                window.setScene(scene);
+                window.showAndWait();
+                return;
+            }
+            pieChartData.add(new PieChart.Data((String) data.get(0), (Integer) data.get(1)));
+        }
     }
 }
