@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class AddScholarshipController implements Initializable, StoreIdInterface
     public ListView group;
     public ListView recordBook;
     public ListView scholarship;
+    public TextField scholarAmount;
     int stored_id;
     Handler handler = Client.get_handler();
 
@@ -82,6 +84,7 @@ public class AddScholarshipController implements Initializable, StoreIdInterface
             handler.write("deanChangeStudentScholarship");
             handler.write((String) numberBox.getValue());
             handler.write((String) scholarBox.getValue());
+            handler.write((String) scholarAmount.getText());
 
             handler.write("returnId");
             handler.write(get_stored_id());

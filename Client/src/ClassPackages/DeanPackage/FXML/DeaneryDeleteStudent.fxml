@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backbutton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#backButton" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button fx:id="deleteButton" layoutX="458.0" layoutY="348.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="128.0" text="Удалить" />
+      <Button fx:id="deleteButton" layoutX="458.0" layoutY="348.0" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="128.0" text="Удалить" />
       <Label layoutX="26.0" layoutY="287.0" prefHeight="17.0" prefWidth="330.0" text="Выберите номер зачетки студента для удаления:" />
       <ChoiceBox fx:id="deleteBox" layoutX="364.0" layoutY="282.0" prefWidth="150.0" />
       <Label layoutX="501.0" layoutY="74.0" text="факультет" />

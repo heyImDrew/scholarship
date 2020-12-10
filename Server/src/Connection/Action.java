@@ -401,6 +401,33 @@ public class Action {
                 handler.write(r);
                 break;
             }
+
+            case "DeaneryDeleteInfo": {
+                Integer dean_id = (Integer) handler.read();
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+                String query = "SELECT student.*, session.avgMark AS avg, faculty.name AS facname FROM scholarship.student INNER JOIN scholarship.session on Idsession=student.session INNER JOIN scholarship.faculty on idFaculty=student.faculty;";
+                Statement statement = connection.createStatement();
+                ResultSet students = statement.executeQuery(query);
+                System.out.println(students);
+                while (students.next()) {
+                    ArrayList r = new ArrayList();
+                    r.add(students.getString("name"));
+                    r.add(students.getString("lastName"));
+                    r.add(students.getString("patronymic"));
+                    r.add(students.getString("group"));
+                    r.add(students.getString("recordBook"));
+                    r.add(students.getString("facname"));
+                    handler.write(r);
+                    r.clear();
+                }
+                ArrayList r = new ArrayList();
+                r.clear();
+                r.add("stop");
+                handler.write(r);
+                break;
+            }
+
             case "AccScholarshipInfo": {
                 Integer dean_id = (Integer) handler.read();
                 ConnectionClass connectionClass = new ConnectionClass();
@@ -471,13 +498,39 @@ public class Action {
                 break;
             }
 
+            case "deanDeleteStudent": {
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                String recordBookId = (String) handler.read();
+                System.out.println(recordBookId);
+                String query0 = "SELECT * FROM scholarship.student WHERE student.recordBook = ?;";
+                PreparedStatement preparedStmt = connection.prepareStatement(query0);
+                preparedStmt.setString(1, recordBookId);
+                System.out.println("2");
+                ResultSet res = preparedStmt.executeQuery();
+                System.out.println("3");
+                res.next();
+                System.out.println("4");
+                Integer stud_id = res.getInt("idStudent");
+                System.out.println("5");
+                String query = null;
+
+                query = "DELETE FROM scholarship.student WHERE idStudent=?;";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query);
+                preparedStmt1.setInt(1, stud_id);
+                preparedStmt1.execute();
+                System.out.println("DONE");
+                break;
+            }
+
             case "deanChangeStudentScholarship": {
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
                 String recordBookId = (String) handler.read();
                 String fieldName = (String) handler.read();
-                //String newValue = (String) handler.read();
+                String newValue = (String) handler.read();
                 System.out.println(recordBookId);
                 String query0 = "SELECT * FROM scholarship.student INNER JOIN scholarship.scholarship on IdScholarship=student.Scholarship_idScholarship WHERE student.recordBook = ?;";
                 PreparedStatement preparedStmt = connection.prepareStatement(query0);
@@ -492,15 +545,16 @@ public class Action {
                 String query = null;
 
                 if (fieldName.equals("Обычная")) {
-                    query = "UPDATE scholarship.scholarship SET scholarship.type= ? WHERE idScholarship= ? ;";
+                    query = "UPDATE scholarship.scholarship SET scholarship.type= ?, scholarship.amount= ? WHERE idScholarship= ? ;";
                 }
                 else if (fieldName.equals("Повышенная")) {
-                    query = "UPDATE scholarship.scholarship SET scholarship.type= ? WHERE idScholarship= ? ;";
+                    query = "UPDATE scholarship.scholarship SET scholarship.type= ?, scholarship.amount= ?  WHERE idScholarship= ? ;";
                 }
 
                 PreparedStatement preparedStmt1 = connection.prepareStatement(query);
                 preparedStmt1.setString(1, fieldName);
-                preparedStmt1.setInt(2, stud_id);
+                preparedStmt1.setString(2, newValue);
+                preparedStmt1.setInt(3, stud_id);
                 preparedStmt1.execute();
                 System.out.println("DONE");
                 break;

@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#backButton" prefHeight="38.0" prefWidth="66.0" text="Назад" />
-      <Button fx:id="goButton" layoutX="520.0" layoutY="348.0" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="66.0" text="Далее" />
+      <Button fx:id="goButton" layoutX="494.0" layoutY="348.0" mnemonicParsing="false" onAction="#onClick" prefHeight="38.0" prefWidth="92.0" text="Изменить" />
       <Label layoutX="32.0" layoutY="247.0" prefHeight="17.0" prefWidth="178.0" text="Выберите вид стипендии:" />
       <Label layoutX="29.0" layoutY="295.0" prefHeight="17.0" prefWidth="258.0" text="Выберите номер зачетки назначения:" />
       <ChoiceBox fx:id="scholarBox" layoutX="247.0" layoutY="242.0" prefWidth="150.0" />
@@ -32,5 +32,6 @@
       <Label layoutX="243.0" layoutY="83.0" text="группа" />
       <Label layoutX="342.0" layoutY="83.0" text="зачетка" />
       <Label layoutX="419.0" layoutY="83.0" text="стипендия" />
+      <TextField fx:id="scholarAmount" layoutX="419.0" layoutY="242.0" promptText="размер стипендии" />
    </children>
 </AnchorPane>
