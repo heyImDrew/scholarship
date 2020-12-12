@@ -4,6 +4,7 @@ import DBConnection.ConnectionClass;
 
 import javax.xml.transform.Result;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.stream.StreamSupport;
@@ -649,6 +650,132 @@ public class Action {
                 r.add("stop");
                 handler.write(r);
                 break;
+            }
+
+            case "deanAddStudent": {
+                System.out.println("Add student");
+
+                ArrayList student = (ArrayList) handler.read();
+                ArrayList exam1 = (ArrayList) handler.read();
+                ArrayList exam2 = (ArrayList) handler.read();
+                ArrayList exam3 = (ArrayList) handler.read();
+                ArrayList exam4 = (ArrayList) handler.read();
+
+                ConnectionClass connectionClass = new ConnectionClass();
+                Connection connection = connectionClass.getConnection();
+
+                System.out.println("Scholarship");
+
+                String count999 = "SELECT COUNT(*) FROM scholarship.Scholarship";
+                Statement statement999 = connection.createStatement();
+                ResultSet count_acc_set999 = statement999.executeQuery(count999);
+                count_acc_set999.next();
+                int next_id999 = count_acc_set999.getInt("COUNT(*)");
+                String query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Обычная', '01.01.2020', 0)";
+                PreparedStatement preparedStmt999 = connection.prepareStatement(query999);
+                preparedStmt999.setInt(1, next_id999 + 1);
+                preparedStmt999.execute();
+
+                System.out.println("Session");
+
+                String count = "SELECT COUNT(*) FROM scholarship.Session";
+                Statement statement = connection.createStatement();
+                ResultSet count_acc_set = statement.executeQuery(count);
+                count_acc_set.next();
+                int next_id = count_acc_set.getInt("COUNT(*)");
+                String query = "INSERT INTO scholarship.Session (idSession, avgMark) VALUES (?, ?)";
+                PreparedStatement preparedStmt = connection.prepareStatement(query);
+                preparedStmt.setInt(1, next_id + 1);
+                preparedStmt.setFloat(2, 0);
+                preparedStmt.execute();
+
+                System.out.println(exam1);
+
+                String count1 = "SELECT COUNT(*) FROM scholarship.Exam";
+                Statement statement1 = connection.createStatement();
+                ResultSet count_acc_set1 = statement1.executeQuery(count1);
+                count_acc_set1.next();
+                int next_id1 = count_acc_set1.getInt("COUNT(*)");
+                String query1 = "INSERT INTO scholarship.Exam (idExam, subject, date, mark, session) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement preparedStmt1 = connection.prepareStatement(query1);
+                preparedStmt1.setInt(1, next_id1 + 1);
+                preparedStmt1.setString(2, (String) exam1.get(2));
+                preparedStmt1.setString(3, (String) exam1.get(0));
+                preparedStmt1.setInt(4, Integer.valueOf((String) exam1.get(1)));
+                preparedStmt1.setInt(5, next_id + 1);
+                preparedStmt1.execute();
+
+                System.out.println(exam2);
+
+                String count2 = "SELECT COUNT(*) FROM scholarship.Exam";
+                Statement statement2 = connection.createStatement();
+                ResultSet count_acc_set2 = statement1.executeQuery(count2);
+                count_acc_set2.next();
+                int next_id2 = count_acc_set2.getInt("COUNT(*)");
+                String query2 = "INSERT INTO scholarship.Exam (idExam, subject, date, mark, session) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement preparedStmt2 = connection.prepareStatement(query2);
+                preparedStmt2.setInt(1, next_id2 + 1);
+                preparedStmt2.setString(2, (String) exam2.get(2));
+                preparedStmt2.setString(3, (String) exam2.get(0));
+                preparedStmt2.setInt(4, Integer.valueOf((String) exam2.get(1)));
+                preparedStmt2.setInt(5, next_id + 1);
+                preparedStmt2.execute();
+
+                System.out.println(exam3);
+
+                String count3 = "SELECT COUNT(*) FROM scholarship.Exam";
+                Statement statement3 = connection.createStatement();
+                ResultSet count_acc_set3 = statement1.executeQuery(count3);
+                count_acc_set3.next();
+                int next_id3 = count_acc_set3.getInt("COUNT(*)");
+                String query3 = "INSERT INTO scholarship.Exam (idExam, subject, date, mark, session) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement preparedStmt3 = connection.prepareStatement(query3);
+                preparedStmt3.setInt(1, next_id3 + 1);
+                preparedStmt3.setString(2, (String) exam3.get(2));
+                preparedStmt3.setString(3, (String) exam3.get(0));
+                preparedStmt3.setInt(4, Integer.valueOf((String) exam3.get(1)));
+                preparedStmt3.setInt(5, next_id + 1);
+                preparedStmt3.execute();
+
+                System.out.println(exam4);
+
+                String count4 = "SELECT COUNT(*) FROM scholarship.Exam";
+                Statement statement4 = connection.createStatement();
+                ResultSet count_acc_set4 = statement1.executeQuery(count4);
+                count_acc_set4.next();
+                int next_id4 = count_acc_set4.getInt("COUNT(*)");
+                String query4 = "INSERT INTO scholarship.Exam (idExam, subject, date, mark, session) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement preparedStmt4 = connection.prepareStatement(query3);
+                preparedStmt4.setInt(1, next_id4 + 1);
+                preparedStmt4.setString(2, (String) exam4.get(2));
+                preparedStmt4.setString(3, (String) exam4.get(0));
+                preparedStmt4.setInt(4, Integer.valueOf((String) exam4.get(1)));
+                preparedStmt4.setInt(5, next_id + 1);
+                preparedStmt4.execute();
+
+
+                String count5 = "SELECT COUNT(*) FROM scholarship.Student";
+                Statement statement5 = connection.createStatement();
+                ResultSet count_acc_set5 = statement5.executeQuery(count5);
+                count_acc_set5.next();
+                int next_id5 = count_acc_set5.getInt("COUNT(*)");
+                String query5 = "INSERT INTO scholarship.Student(`idStudent`,`name`,`lastName`,`patronymic`,`group`,`recordBook`,`bankCard`,`login`,`password`,`Scholarship_idScholarship`,`faculty`,`session`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement preparedStmt5 = connection.prepareStatement(query5);
+                preparedStmt5.setInt(1, next_id5 + 1);
+                preparedStmt5.setString(2, (String) student.get(1));
+                preparedStmt5.setString(3, (String) student.get(0));
+                preparedStmt5.setString(4, (String) student.get(2));
+                preparedStmt5.setString(5, (String) student.get(3));
+                preparedStmt5.setString(6, (String) student.get(4));
+                preparedStmt5.setString(7, (String) student.get(5));
+                preparedStmt5.setString(8, ((String)student.get(0)).toLowerCase());
+                preparedStmt5.setString(9, ((String)student.get(1)).toLowerCase());
+                preparedStmt5.setInt(10, next_id999 + 1);
+                preparedStmt5.setInt(11, (Integer) student.get(6));
+                preparedStmt5.setInt(12, next_id + 1);
+                preparedStmt5.execute();
+
+                System.out.println(student);
             }
         }
     }

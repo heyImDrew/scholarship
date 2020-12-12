@@ -17,7 +17,7 @@
          </children>
       </Pane>
       <Button fx:id="backButton" layoutX="14.0" onAction="#backButton" layoutY="369.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" text="Назад" />
-      <Button fx:id="addButton" layoutX="475.0" layoutY="369.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Добавить" />
+      <Button fx:id="addButton" layoutX="475.0" layoutY="369.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Добавить" onAction="#addButton" />
       <Label layoutX="17.0" layoutY="82.0" text="Личные данные:" />
       <TextField fx:id="surnameField" layoutX="17.0" layoutY="107.0" prefHeight="27.0" prefWidth="167.0" promptText="Фамилия" />
       <TextField fx:id="nameField" layoutX="192.0" layoutY="107.0" promptText="Имя" />
