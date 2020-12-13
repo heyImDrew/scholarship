@@ -7,6 +7,7 @@ import ClassPackages.MainPackage.Models.ScreenHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class AuthorizeController {
 
     public TextField loginField;
-    public TextField passwordField;
+    public PasswordField passwordField;
     Handler handler = Client.get_handler();
 
     public void enterAccountant() throws IOException, ClassNotFoundException {

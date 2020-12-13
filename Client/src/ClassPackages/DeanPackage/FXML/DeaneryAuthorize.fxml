@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffa500;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClassPackages.DeanPackage.Controllers.AuthorizeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffa500;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClassPackages.DeanPackage.Controllers.AuthorizeController">
    <children>
       <Label layoutX="127.0" layoutY="92.0" prefHeight="28.0" prefWidth="353.0" text="Добро пожаловать в деканат!">
          <font>
             <Font size="22.0" />
          </font></Label>
       <TextField fx:id="loginField" layoutX="218.0" layoutY="166.0" />
-      <TextField fx:id="passwordField" layoutX="218.0" layoutY="209.0" />
       <Label layoutX="152.0" layoutY="171.0" prefHeight="17.0" prefWidth="69.0" text="Логин:" />
       <Label layoutX="152.0" layoutY="214.0" prefHeight="17.0" prefWidth="69.0" text="Пароль:" />
       <Button fx:id="enterButton" layoutX="240.0" layoutY="262.0" mnemonicParsing="false" onAction="#enterDean" prefHeight="54.0" prefWidth="120.0" text="Вход" />
       <Button fx:id="backButton" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#backDean" prefHeight="17.0" prefWidth="62.0" text="Назад" />
+      <PasswordField fx:id="passwordField" layoutX="218.0" layoutY="209.0" />
    </children>
 </AnchorPane>
