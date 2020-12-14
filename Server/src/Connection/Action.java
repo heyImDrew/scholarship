@@ -661,6 +661,9 @@ public class Action {
                 ArrayList exam3 = (ArrayList) handler.read();
                 ArrayList exam4 = (ArrayList) handler.read();
 
+                float avgm = (Integer.valueOf((String) exam1.get(1)) + Integer.valueOf((String) exam2.get(1)) +
+                        Integer.valueOf((String) exam3.get(1)) + Integer.valueOf((String) exam4.get(1))) / 4;
+
                 ConnectionClass connectionClass = new ConnectionClass();
                 Connection connection = connectionClass.getConnection();
 
@@ -671,7 +674,7 @@ public class Action {
                 ResultSet count_acc_set999 = statement999.executeQuery(count999);
                 count_acc_set999.next();
                 int next_id999 = count_acc_set999.getInt("COUNT(*)");
-                String query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Обычная', '01.01.2020', 0)";
+                String query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Обычная', '01.01.2020', 115)";
                 PreparedStatement preparedStmt999 = connection.prepareStatement(query999);
                 preparedStmt999.setInt(1, next_id999 + 1);
                 preparedStmt999.execute();
@@ -686,7 +689,7 @@ public class Action {
                 String query = "INSERT INTO scholarship.Session (idSession, avgMark) VALUES (?, ?)";
                 PreparedStatement preparedStmt = connection.prepareStatement(query);
                 preparedStmt.setInt(1, next_id + 1);
-                preparedStmt.setFloat(2, 0);
+                preparedStmt.setFloat(2, avgm);
                 preparedStmt.execute();
 
                 System.out.println(exam1);
