@@ -29,6 +29,17 @@ public class Handler implements Closeable {
         }
     }
 
+    public Handler(Handler handler) {
+        this.socket = handler.socket;
+        this.out = handler.out;
+        this.in = handler.in;
+    }
+
+    @Override
+    public Handler clone() {
+        return new Handler(this);
+    }
+
     public void write(Object object) throws IOException {
         out.flush();
         out.writeObject(object);
