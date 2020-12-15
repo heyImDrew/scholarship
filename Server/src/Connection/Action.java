@@ -675,7 +675,13 @@ public class Action extends AbstractAction {
                 ResultSet count_acc_set999 = statement999.executeQuery(count999);
                 count_acc_set999.next();
                 int next_id999 = count_acc_set999.getInt("COUNT(*)");
-                String query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Обычная', '01.01.2020', 115)";
+                String query999 = null;
+                if (avgm > 6.99) {
+                    query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Повышенная', '01.01.2020', 130)";
+                }
+                else {
+                    query999 = "INSERT INTO scholarship.Scholarship (idScholarship, type, date, amount) VALUES (?, 'Обычная', '01.01.2020', 115)";
+                }
                 PreparedStatement preparedStmt999 = connection.prepareStatement(query999);
                 preparedStmt999.setInt(1, next_id999 + 1);
                 preparedStmt999.execute();
