@@ -9,7 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.stream.StreamSupport;
 
-public class Action {
+public class Action extends AbstractAction {
+    @Override
     public void execute(Handler handler, String action) throws IOException, ClassNotFoundException, SQLException {
         switch (action) {
             case "enterStudent": {
