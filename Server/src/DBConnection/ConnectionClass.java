@@ -2,6 +2,8 @@ package DBConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class ConnectionClass {
@@ -19,5 +21,16 @@ public class ConnectionClass {
         }
 
         return connection;
+    }
+    public static boolean is_connection(Connection new_conn) {
+        try {
+            Connection conn = new_conn;
+            Statement statement = conn.createStatement();
+            conn.close();
+            return true;
+        }
+        catch (SQLException e) {
+            return false;
+        }
     }
 }

@@ -782,4 +782,14 @@ public class Action {
             }
         }
     }
+
+    public static float get_avg_mark(ArrayList marks) {
+        float avg = 0;
+        int num = 0;
+        for (Object mark : marks) {
+            avg += (Integer) mark;
+            num += 1;
+        }
+        return (avg / num);
+    }
 }
